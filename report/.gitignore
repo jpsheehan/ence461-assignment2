@@ -1,0 +1,15 @@
+# ignore common LaTeX artifacts
+*.gz
+*.aux
+*.log
+*.xml
+*.pdf
+*.sav
+
+# ignore temporary BibTeX databases but not the main one
+*.bib
+*.bak
+!references.bib
+
+# remove this next line when ready to commit the report
+# !report.pdf
