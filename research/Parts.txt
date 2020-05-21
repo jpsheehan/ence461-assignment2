@@ -4,6 +4,7 @@ Assume the microcontroller will be a 3.3V device therefore therta re two supplie
 Use the 5V supply just for the opamps.
 May require the 5V and/or half rail (3,5V) to be connected to the micro ADC reference as well. But these do not draw current.
 
+
 5V supply to ADC amplifiers
 Requirements
 Linear device
@@ -20,9 +21,12 @@ Output current calculations
 12 ADC channels and mx current 2.7mA round this to 3mA too allow some overhead.
 Add 1x opamp toi generate the 2.5volt reference signal.
 13 x 3mA = 39mA.
+
+Option 1 - seperate 5V and 3V3 supplies
+
 Using the Digikey part sselector and setting Vin max to 10V we arrive at
 1)
- ADP1720ARMZ-R7
+ADP1720ARMZ-R7
 Datasheet ADP1720ARMZ-R7
 Whci hhas ouput current 50mA, VDO 275mV, -40-125 degress C
 2)
@@ -46,7 +50,7 @@ ouput current calulations
 
 If we assume the micopr and perpahals (associated wit hthe m,icor that run of 3.3V) will comsume 500mA in total we can use. CAT6219-330TDGT3 but this is last time buy.
 
-Assume the micopr and perpahals (associated wit hthe m,icor that run of 3.3V) will comsume 150mA in total, the digikey selctor with 10V max inout gives 
+Assume the micrprocessor and periphasd (associated wit hthe m,icor that run of 3.3V) will comsume 150mA in total, the digikey selctor with 10V max inout gives 
 Digikey 296-11021-1-ND, TPS76333DBVR
 
 http://www.ti.com/lit/ds/symlink/tps763.pdf?HQS=TI-null-null-digikeymode-df-pf-null-wwe&ts=1590036136348
@@ -63,3 +67,7 @@ The LMV344IPWR has four opamp circuits per package.
 So we only need 12 / 4 * 92 = 368 of these.
 The part number on Digi-Key is [296-18596-1-ND](https://www.digikey.co.nz/product-detail/en/texas-instruments/LMV344IPWR/296-18596-1-ND/858596).
 For 368, we have a buy price of $0.91224 per unit
+=======
+Option 2 - combined 5V and 3V3 supplies
+WIP
+
