@@ -1,0 +1,54 @@
+Power Supply
+Opamps are to be powered off 5V. 
+Assume the microcontroller will be a 3.3V device therefore therta re two supplies 1 for Opam aone for microporcess.
+Use the 5V supply just for the opamps.
+May require the 5V and/or half rail (3,5V) to be connected to the micro ADC reference as well. But these do not draw current.
+
+5V supply to ADC amplifiers
+Requirements
+Linear device
+5V output
+>= 105 degrees
+6V input.
+RoHS comlaint
+SMD
+Ideally a low dropout voltage at full load. 
+Minimum additional components
+Mising: ouput current
+
+Output current calculations
+12 ADC channels and mx current 2.7mA round this to 3mA too allow some overhead.
+Add 1x opamp toi generate the 2.5volt reference signal.
+13 x 3mA = 39mA.
+Using the Digikey part sselector and setting Vin max to 10V we arrive at
+1)
+ ADP1720ARMZ-R7
+Datasheet ADP1720ARMZ-R7
+Whci hhas ouput current 50mA, VDO 275mV, -40-125 degress C
+2)
+Digikey 296-1364-2-ND, IC REG LINEAR 5V 100MA 8SOIC,
+http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fua78l
+3)
+Digikey TC1054-5.0VCT713CT-ND, TC1054-5.0VCT713 
+Datasheet http://ww1.microchip.com/downloads/en/DeviceDoc/21350E.pdf
+
+3.3V supply to microprocessor
+Requirements
+Switching device (since micor is high speed device) 
+3.3V output
+>= 105 degrees
+6V input.
+RoHS comlaint
+SMD
+Minimum additional components
+Mising: ouput current
+ouput current calulations
+
+If we assume the micopr and perpahals (associated wit hthe m,icor that run of 3.3V) will comsume 500mA in total we can use. CAT6219-330TDGT3 but this is last time buy.
+
+Assume the micopr and perpahals (associated wit hthe m,icor that run of 3.3V) will comsume 150mA in total, the digikey selctor with 10V max inout gives 
+Digikey 296-11021-1-ND, TPS76333DBVR
+
+http://www.ti.com/lit/ds/symlink/tps763.pdf?HQS=TI-null-null-digikeymode-df-pf-null-wwe&ts=1590036136348
+quantity 93 = $131.50
+quantity 101 = $107.16
