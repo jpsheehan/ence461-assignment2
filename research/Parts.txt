@@ -52,3 +52,14 @@ Digikey 296-11021-1-ND, TPS76333DBVR
 http://www.ti.com/lit/ds/symlink/tps763.pdf?HQS=TI-null-null-digikeymode-df-pf-null-wwe&ts=1590036136348
 quantity 93 = $131.50
 quantity 101 = $107.16
+
+
+Op-Amps:
+========
+
+Need 12 opamp circuits for each slave board.
+
+The LMV344IPWR has four opamp circuits per package.
+So we only need 12 / 4 * 92 = 368 of these.
+The part number on Digi-Key is [296-18596-1-ND](https://www.digikey.co.nz/product-detail/en/texas-instruments/LMV344IPWR/296-18596-1-ND/858596).
+For 368, we have a buy price of $0.91224 per unit
