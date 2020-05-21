@@ -57,17 +57,20 @@ http://www.ti.com/lit/ds/symlink/tps763.pdf?HQS=TI-null-null-digikeymode-df-pf-n
 quantity 93 = $131.50
 quantity 101 = $107.16
 
+Option 2 - combined 5V and 3V3 supplies
+WIP
+
 
 Op-Amps:
 ========
 
 Need 12 opamp circuits for each slave board.
 
-The LMV344IPWR has four opamp circuits per package.
+The LMV324AIPWR has four opamp circuits per package.
 So we only need 12 / 4 * 92 = 368 of these.
-The part number on Digi-Key is [296-18596-1-ND](https://www.digikey.co.nz/product-detail/en/texas-instruments/LMV344IPWR/296-18596-1-ND/858596).
-For 368, we have a buy price of $0.91224 per unit
-=======
-Option 2 - combined 5V and 3V3 supplies
-WIP
+The part number on Digi-Key is [296-51366-1-ND ](https://www.digikey.co.nz/product-detail/en/texas-instruments/LMV324AIPWR/296-51366-1-ND/9745730).
+For 368, we have a buy price of $0.36704 per unit
+
+This part doesn't have an enable line so we will have to also use a mosfet to drive the positive supply voltage to ground to disable. This chip has a 50 us startup time.
+
 
