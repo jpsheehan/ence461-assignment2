@@ -11,18 +11,26 @@ The half-rail voltage of $\SI{2.5}{\volt}$ is provided by a virtual ground op-am
 	A_v &= 1 + \frac{R_1}{R_2 + R_3}\label{eq:gain}
 \end{align}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\textwidth]{gain_circuit}
-	\caption{The non-inverting op-amp circuit.}
-	\label{fig:non-inverting-op-amp}
-\end{figure}
+\begin{figure}[ht]
+\centering
 
-\begin{figure}[H]
+\begin{subfigure}[c]{0.45\textwidth}
 	\centering
-	\includegraphics[width=0.3\textwidth]{virtual_ground_circuit}
-	\caption{The virtual ground op-amp circuit.}
+	\includegraphics[width=\textwidth]{gain_circuit}
+	\caption{The non-inverting amplifier circuit.}
+	\label{fig:non-inverting-op-amp}
+\end{subfigure}
+\hfill
+\begin{subfigure}[c]{0.45\textwidth}
+	\centering
+	\vfill
+	\includegraphics[width=\textwidth]{virtual_ground_circuit}
+	\vfill
+	\caption{The virtual ground circuit.}
 	\label{fig:half-supply}
+\end{subfigure}
+
+\caption{Operational amplifer circuits used.}
 \end{figure}
 
 The op-amps are required to switch to a low power mode when no ADC readings are taking place.
