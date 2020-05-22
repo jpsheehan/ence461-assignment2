@@ -128,3 +128,9 @@ Gets to within 40mV of rail voltage.
 
 
 For the virtual ground, use 296-51364-1-ND (digikey).
+
+
+CAN Transceiver
+===============
+
+NCV7344D13R2GOSCT-ND
