@@ -1,0 +1,128 @@
+Power Supply
+Opamps are to be powered off 5V, a 2.5V (half rail) reference is required and we will assume, at this stage, microcontroller will be a 3.3V device. 
+Therefore multiple supply rails are needed.
+Optiom 1 - two seperate regulators
+5V supply for the opamps and 1/2 rail.
+May require the 5V and/or half rail to connect to micro ADC reference as well, but assume this rail does not require current.
+
+5V supply to Opamp ADC amplifiers
+Requirements
+Linear device
+5V output
+>= 105 degrees
+6V input.
+RoHS comlaint
+SMD
+Ideally a low dropout voltage at full load. 
+Minimum additional components
+Missing parameter: ouput current.
+
+Output current calculations
+12 ADC channels and max current 2.7mA. Round up to 3mA gives some overhead.
+Further opamp for the 2.5 volt reference. 13 x 3mA = 39mA.
+
+Using the Digikey part sselector 
+RoHSm datasheet, active part, 125 degrees, Vin max = 10V (allow some overhead for 6V input) gives:
+1)
+ADP1720ARMZ-R7
+Datasheet ADP1720ARMZ-R7
+Which has ouput current 50mA, VDO 275mV, -40 to 125 degree C
+2)
+Digikey 296-1364-2-ND, IC REG LINEAR 5V 100MA 8SOIC,
+http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fua78l
+3)
+Digikey TC1054-5.0VCT713CT-ND, TC1054-5.0VCT713 
+Datasheet http://ww1.microchip.com/downloads/en/DeviceDoc/21350E.pdf
+
+Choose TC1054-5.0VCT713‎ because
+Low drop out voltage (supply is only 6V and we need 5V out) typically 85mV max 120mV
+It provies control pins. These may be required to shutdown the ADC amps into low power. (50uSec start up time for opamp)
+Note that the ramp up time from shutdown to active is less than 100uSec. T start is therfore 100 + 50 = 150uSec
+There are 100 and 150mA versions so if dicsover greater current is required this part can be uprated.
+
+Thermal consderations.
+PD worst case operating = (Vin - Vout) x Imax => (6.5-5)*50 = 75mW
+PD max = (TJ - TA)/ thetaJA => (125-105) / 220 = 90.90mW
+Thus PDMax > PD worst therfore device is suitable fro mthermal perspective.
+However vin max = PD max/Imax + Vo => 90.909mW/50mA + 5 = 6.81V max.
+Thus the supply input voltage must not exceed 6.8V, however Vin max is 6.5V.
+
+93 units are required (assuming there is a need for 5V in the master unit)
+Purhase of 100 units is reduces the cost by 20C and proves 7 spares
+100x 0.46340 = $46.34
+
+3.3V supply to microprocessor
+Requirements
+Linear devie since ADC is it main function.
+3.3V output
+>= 105 degrees
+6V input.
+RoHS compliantt
+SMD
+Minimum additional components
+Mising parameter: ouput current
+Output current calulations
+
+If we assumed at this stage the micro and 3V3 periphials will comsume 500mA in total we can use CAT6219-330TDGT3 but 
+ this is last time buy according to digikey and is likely overspecified.
+
+Assume at this stage the micro and 3V3 periphials will comsume 150mA in total 
+(micro, LED x 2, possbible buss chips)
+
+Using the Digikey part sselector 
+RoHSm datasheet, active part, 125 degrees, Vin max = 10V (allows overhead for 6V input) gives 
+
+Selet the following part due to
+Minimum external compents, on board protection.
+Digikey 296-11021-1-ND, TPS76333DBVR
+http://www.ti.com/lit/ds/symlink/tps763.pdf?HQS=TI-null-null-digikeymode-df-pf-null-wwe&ts=1590036136348
+It is known that there are 6V versions and also 250mA versions whcih may have a similar form factor, 
+ so the part could be changed if higher Iout is required.
+
+Thermal consderations.
+PD worst case operating = (Vin - Vout) x Imax => (6.5-3.3)V * 150mA = 480mW
+PD max = (TJ - TA)/ thetaJA => (125-105) / 205.3 = 97.41 mW
+Thus PDMax < PD worst therfore device is not suitable.
+
+TPS76633, TPD706-150 and others => not suitable
+
+Check
+Digikey 296-19675-1-ND, TPS71733DCKR
+Tj = Tt + gamma?jt * PD max => 105 + 2.7*480mW = 106.296 less than Toperating max = 125 
+Tj = Tb + gamma?jb * PD max => 105 + 40.9* 480mW = 124.632 degress just less than Toperating max = 125 
+This is on the limit at 6.5V input 
+At 6.0 Vin Tj = 121 degrees - still less than Toperating max = 125 
+VDO = 300mV worst case.
+100 x 1.00190 =  $100.19 
+
+Option 2 - combined 5V and 3V3 supplies
+Maybe later
+
+
+Op-Amps:
+========
+Option 1
+Need 12 opamp circuits for each slave board.
+and one more for reliable 1/2 rail.
+
+The LMV324AIPWR has four opamp circuits per package.
+So we only need 12 / 4 * 92 = 368 of these.
+The part number on Digi-Key is [296-51366-1-ND ](https://www.digikey.co.nz/product-detail/en/texas-instruments/LMV324AIPWR/296-51366-1-ND/9745730).
+For 368, we have a buy price of $0.36704 per unit
+
+This part doesn't have an enable line so we will have to also use a mosfet to drive the positive supply voltage to ground to disable. 
+This chip has a 50 us startup time.
+Gets to within 20mV of rail voltage.
+
+150uA * 13 devices = 1.95mA == 2mA ??
+
+
+Option 2
+MCP632T-E/MFCT-ND provides chip enable/disable function and T operating of 125 degress. Tmax is 150 degrees so based on the likely current ouputs with no 
+ ouptput limiting resistor comfortabel meets the PD max and PO max thermal considerations.
+Optimies for single supply rail.
+Input current is nomianll6 2.5mA per channel and 3.6mA max per channel.
+Enable time is 4.5uSec.
+3.6mA x 13 = 46.8 mA - within 5V regulator specification.
+Checking pricing 368 dual units at 1.483 ea is the lowest cost option at $545.70. 4 Opamps per board, 1 ch unused. (could put jumpers on this)
+Gets to within 40mV of rail voltage.
