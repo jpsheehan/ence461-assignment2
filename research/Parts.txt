@@ -129,6 +129,13 @@ Gets to within 40mV of rail voltage.
 
 For the virtual ground, use 296-51364-1-ND (digikey).
 
+CMOS Inverter
+=============
+
+Need 184 in total, buy 250 for cheaper at 0.26752.
+
+1727-3781-ND (digikey)
+
 
 CAN Transceiver
 ===============
