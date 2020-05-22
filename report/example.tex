@@ -1,0 +1,68 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%                          EXAMPLE STUFF                         %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Example \LaTeX\ Stuff}
+
+\LaTeX\ automatically typesets the text for you, so you don't need to worry about the formatting details for text.
+If there is a blank line between two lines of text then they are considered different paragraphs, otherwise the paragraph is continued.
+
+\textcolor{red}{Here is a line of red text.}
+\textcolor{blue}{Here is a line of blue text.}
+
+Referencing is done like this\cite{Varghese2012}. A bibliography is printed at the end of the report in IEEE style. A footnote can be added if required\footnote{Oh man, we should have started this last week!}.
+
+\subsection{Math Mode}
+
+Enter math mode by enclosing formulae in single dollar signs: $y(x) = e^x$.
+To put the formula on its own line, use double dollar signs: $$c = \sqrt{a^2 + b^2}$$
+To have multiple lines of math that are aligned properly on a symbol, then use the align environment:
+\begin{align}
+	\tan(\theta) &= \frac{\sin(\theta)}{\cos(\theta)} \\
+		&= \frac{\sec(\theta)}{\csc(\theta)}
+\end{align}
+Note that a double back-slash makes a newline, the ampersand (\&) symbol sets the alignment.
+
+If you don't want equation numbers, then put an asterisk (*) symbol after the environment name (this works for many things, like sections, etc):
+\begin{align*}
+	\tan(\theta) &= \frac{\sin(\theta)}{\cos(\theta)} \\
+		&= \frac{\sec(\theta)}{\csc(\theta)}
+\end{align*}
+
+\subsection{Lists}
+
+An example of the \texttt{enumerate} environment:
+\begin{enumerate}
+	\item One item.
+	\item Another item.
+	\item Yet another item.
+\end{enumerate}
+
+An example of the \texttt{itemize} environment:
+\begin{itemize}
+	\item One item.
+	\item Another item.
+	\item Yet another item.
+\end{itemize}
+
+\subsection{Images and Referencing}
+
+Images can be included, such as figure \ref{fig:cat}. It may look a bit long-winded but using a figure environment allows you to give a caption and a label to the image. I usually just copy and paste figure blocks and change the caption, label and filename whenever I want another image. Labels are used to reference things somewhere else in the document (like this first sentence of this paragraph).
+
+\begin{figure}[H]	% the capital H means that we'd like the image to appear exactly here in the document
+					% if no letter is specified, LaTeX will put it where it thinks is best.
+	\centering 		% centers the image on the page
+	\includegraphics[width=0.8\textwidth]{cat}	% this is where the image is inserted
+												% we make the image 80% of the text width
+												% the filename is `cat.jpg' and it lives in the images directory
+												% LaTeX will find it without its filename extension
+	\caption{Cat standing up.}	% the caption
+	\label{fig:cat}	% give it a nice label. I like to use `fig' for figures, `eq' for equations, and `tab' for tables.
+\end{figure}
+
+Here's an example of referencing Pythagoras Theorem (equation \ref{eq:pythagoras}).
+\begin{align} \label{eq:pythagoras}
+	c^2 = a^2 + b^2
+\end{align}
