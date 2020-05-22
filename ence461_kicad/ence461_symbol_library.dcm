@@ -5,4 +5,9 @@ D Inverter IC 3 Channel Schmitt Trigger 8-TSSOP
 F https://assets.nexperia.com/documents/data-sheet/74HC_HCT3G14.pdf
 $ENDCMP
 #
+$CMP NCV7344D13R2GOSCT-ND
+D High Speed Low Power CAN, CAN FD Transceiver
+F https://www.onsemi.com/pub/Collateral/NCV7344-D.PDF
+$ENDCMP
+#
 #End Doc Library
