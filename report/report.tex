@@ -25,6 +25,10 @@
 \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{xcolor}			% adds support for different colors
 \usepackage{float}			% adds support for floats
+\usepackage{upgreek}		% greek letters
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{siunitx}
 
 %%% Images
 \usepackage{graphicx}		% allows us to include images
@@ -65,20 +69,58 @@
 \begin{document}
 \maketitle
 
+\section{Introduction}
 
 
 
 
 
+\section{Design}
+
+
+\subsection{Power Supply}
 
 
 
 
+\subsection{Amplifier Stage}
+
+The current transducers output a $\pm \SI{25}{\milli\volt}$ signal centered around $\SI{2.5}{\volt}$.
+This signal must be amplified to $\pm \SI{2.5}{\volt}$ using an operational amplifier with a gain of 100.
+This amplified signal is then fed into the microcontroller's ADC input.
+To realise this, we have used a non-inverting op-amp circuit (figure \ref{fig:non-inverting-op-amp}) for each signal.
+The half-rail voltage of $\SI{2.5}{\volt}$ is provided by another op-amp circuit (figure \ref{fig:half-supply}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{cat}
+	\caption{The non-inverting op-amp circuit, $A_v = 1 + \frac{R_1}{R_2}$.}
+	\label{fig:non-inverting-op-amp}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{cat}
+	\caption{The half-rail voltage op-amp circuit.}
+	\label{fig:half-supply}
+\end{figure}
+
+The op-amps are required to switch to a low power mode when no ADC readings are taking place.
+Due to physical size constraints and part availability we have opted to disable the power supply to the op-amps to achieve a low power state.
+The main drawback of this method is the start-up time to enable the op-amps again.
+The sum of the time taken to start the linear regulator and op-amp is less than $\SI{150}{\micro\second}$.
+
+12 of these non-inverting amplifier circuits are required for each daughterboard.
+We have selected the LMV324 as it has four op-amp circuits in one package.
+This reduces the amount of space used on the board and the overall cost.
+An additional op-amp package is required to produce the half-rail voltage.
+
+\subsection{Microcontroller}
 
 
 
 
-
+\subsection{Communications}
 
 
 
@@ -97,6 +139,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%                          EXAMPLE STUFF                         %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 
 \section{Example \LaTeX\ Stuff}
 
