@@ -10,6 +10,11 @@ D High Speed Low Power CAN, CAN FD Transceiver
 F https://www.onsemi.com/pub/Collateral/NCV7344-D.PDF
 $ENDCMP
 #
+$CMP TPS71433DRVR
+D 80mA, 10V, 3.2μA Quiescent Current, LOW-DROPOUT LINEAR REGULATOR in SC70 or SON 2x2
+F http://www.ti.com/lit/ds/symlink/tps714.pdf?HQS=TI-null-null-digikeymode-df-pf-null-wwe&ts=1590190303413
+$ENDCMP
+#
 $CMP TPS717DRV-WSON
 D Low-Noise, High-Bandwidth PSRR, Low-Dropout, 150-mA Linear Regulator
 F http://www.ti.com/lit/ds/symlink/tps717.pdf?HQS=TI-null-null-digikeymode-df-pf-null-wwe&ts=1590186425971
