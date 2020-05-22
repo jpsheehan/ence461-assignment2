@@ -107,7 +107,7 @@ and one more for reliable 1/2 rail.
 
 The LMV324AIPWR has four opamp circuits per package.
 So we only need 12 / 4 * 92 = 368 of these.
-The part number on Digi-Key is [296-51366-1-ND ](https://www.digikey.co.nz/product-detail/en/texas-instruments/LMV324AIPWR/296-51366-1-ND/9745730).
+The part number on Digi-Key is [296-51366-1-ND](https://www.digikey.co.nz/product-detail/en/texas-instruments/LMV324AIPWR/296-51366-1-ND/9745730).
 For 368, we have a buy price of $0.36704 per unit
 
 This part doesn't have an enable line so we will have to also use a mosfet to drive the positive supply voltage to ground to disable. 
@@ -115,7 +115,6 @@ This chip has a 50 us startup time.
 Gets to within 20mV of rail voltage.
 
 150uA * 13 devices = 1.95mA == 2mA ??
-
 
 Option 2
 MCP632T-E/MFCT-ND provides chip enable/disable function and T operating of 125 degress. Tmax is 150 degrees so based on the likely current ouputs with no 
@@ -126,3 +125,6 @@ Enable time is 4.5uSec.
 3.6mA x 13 = 46.8 mA - within 5V regulator specification.
 Checking pricing 368 dual units at 1.483 ea is the lowest cost option at $545.70. 4 Opamps per board, 1 ch unused. (could put jumpers on this)
 Gets to within 40mV of rail voltage.
+
+
+For the virtual ground, use 296-51364-1-ND (digikey).
