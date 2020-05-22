@@ -317,7 +317,7 @@ F 3 "" H 9000 2050 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	9000 1850 9000 2050
-Text Notes 9750 1300 0    50   ~ 0
+Text Notes 4550 50   0    50   ~ 0
 Use a non-inverting amplifier circuit.\nThe gain is 1 + R1/(R2 + R3), where R1 is top resistor.\nNeed to use two resistors to achieve an accurate gain.\n\nInput impedance to this circuit is R1||(R2 + R3)\n\nUse part: 296-51366-1-ND (digikey)
 Text Label 9000 950  0    50   ~ 0
 OPAMP_SUPPLY
@@ -375,7 +375,7 @@ F 3 "~" H 8150 1900 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	8150 2050 8150 2000
-Text Notes 2050 9250 0    50   ~ 0
+Text Notes 1300 12200 0    50   ~ 0
 Use a virtual ground circuit.\n\nPart: 296-51364-1-ND (digikey)
 $Comp
 L Amplifier_Operational:LMV321 U?
@@ -1213,306 +1213,128 @@ F 3 "~" H 8150 4900 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	8150 5050 8150 5000
+Wire Notes Line
+	3100 5500 3100 8950
+Wire Notes Line
+	700  8950 700  5500
+Text Notes 800  8850 0    101  ~ 0
+Op-Amp Enable Circuit
+Wire Notes Line
+	700  550  9700 550 
+Wire Notes Line
+	9700 550  9700 5450
+Wire Notes Line
+	9700 5450 700  5450
+Wire Notes Line
+	700  5450 700  550 
+Text Notes 800  5400 0    101  ~ 0
+Non-Inverting Amplifier Circuit
+Wire Notes Line
+	700  9050 3100 9050
+Wire Notes Line
+	3100 9050 3100 11150
+Wire Notes Line
+	3100 11150 700  11150
+Wire Notes Line
+	700  11150 700  9050
+Text Notes 800  11050 0    101  ~ 0
+Virtual Ground Circuit
 $Comp
-L 74xx:74HC14 U?
-U 1 1 5EC84DBE
-P 1700 6000
-F 0 "U?" H 1700 6317 50  0000 C CNN
-F 1 "74HC14" H 1700 6226 50  0000 C CNN
-F 2 "" H 1700 6000 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 1700 6000 50  0001 C CNN
-	1    1700 6000
+L ence461_symbol_library:74HC3G14DP U?
+U 1 1 5EE44633
+P 1800 5850
+F 0 "U?" H 1842 5965 50  0000 C CNN
+F 1 "74HC3G14DP" H 1842 5874 50  0000 C CNN
+F 2 "Package_SO:VSSOP-8_2.3x2mm_P0.5mm" H 1800 5850 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT3G14.pdf" H 1800 5850 50  0001 C CNN
+	1    1800 5850
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74HC14 U?
-U 2 1 5EC8B9D6
-P 1700 6500
-F 0 "U?" H 1700 6817 50  0000 C CNN
-F 1 "74HC14" H 1700 6726 50  0000 C CNN
-F 2 "" H 1700 6500 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 1700 6500 50  0001 C CNN
-	2    1700 6500
+L ence461_symbol_library:74HC3G14DP U?
+U 2 1 5EE44F5D
+P 1800 6350
+F 0 "U?" H 1842 6465 50  0000 C CNN
+F 1 "74HC3G14DP" H 1842 6374 50  0000 C CNN
+F 2 "Package_SO:VSSOP-8_2.3x2mm_P0.5mm" H 1800 6350 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT3G14.pdf" H 1800 6350 50  0001 C CNN
+	2    1800 6350
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74HC14 U?
-U 3 1 5EC8C5B2
-P 1700 7000
-F 0 "U?" H 1700 7317 50  0000 C CNN
-F 1 "74HC14" H 1700 7226 50  0000 C CNN
-F 2 "" H 1700 7000 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 1700 7000 50  0001 C CNN
-	3    1700 7000
+L ence461_symbol_library:74HC3G14DP U?
+U 3 1 5EE45D5A
+P 1800 6850
+F 0 "U?" H 1842 6965 50  0000 C CNN
+F 1 "74HC3G14DP" H 1842 6874 50  0000 C CNN
+F 2 "Package_SO:VSSOP-8_2.3x2mm_P0.5mm" H 1800 6850 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT3G14.pdf" H 1800 6850 50  0001 C CNN
+	3    1800 6850
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74HC14 U?
-U 4 1 5EC8CDDE
-P 1700 7500
-F 0 "U?" H 1700 7817 50  0000 C CNN
-F 1 "74HC14" H 1700 7726 50  0000 C CNN
-F 2 "" H 1700 7500 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 1700 7500 50  0001 C CNN
-	4    1700 7500
+L ence461_symbol_library:74HC3G14DP U?
+U 4 1 5EE465F2
+P 1800 7450
+F 0 "U?" H 2078 7096 50  0000 L CNN
+F 1 "74HC3G14DP" H 2078 7005 50  0000 L CNN
+F 2 "Package_SO:VSSOP-8_2.3x2mm_P0.5mm" H 1800 7450 50  0001 C CNN
+F 3 "https://assets.nexperia.com/documents/data-sheet/74HC_HCT3G14.pdf" H 1800 7450 50  0001 C CNN
+	4    1800 7450
 	1    0    0    -1  
 $EndComp
-$Comp
-L 74xx:74HC14 U?
-U 5 1 5EC8D6EC
-P 1700 8000
-F 0 "U?" H 1700 8317 50  0000 C CNN
-F 1 "74HC14" H 1700 8226 50  0000 C CNN
-F 2 "" H 1700 8000 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 1700 8000 50  0001 C CNN
-	5    1700 8000
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74HC14 U?
-U 6 1 5EC8DC3C
-P 1700 8500
-F 0 "U?" H 1700 8817 50  0000 C CNN
-F 1 "74HC14" H 1700 8726 50  0000 C CNN
-F 2 "" H 1700 8500 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 1700 8500 50  0001 C CNN
-	6    1700 8500
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74HC14 U?
-U 7 1 5EC8E24F
-P 2900 7250
-F 0 "U?" H 3130 7296 50  0000 L CNN
-F 1 "74HC14" H 3130 7205 50  0000 L CNN
-F 2 "" H 2900 7250 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 2900 7250 50  0001 C CNN
-	7    2900 7250
-	1    0    0    -1  
-$EndComp
-Text Label 1300 6000 2    50   ~ 0
+Text Label 1500 6000 2    50   ~ 0
 ENABLE_01
-Text Label 1300 6500 2    50   ~ 0
+Text Label 1500 6500 2    50   ~ 0
 ENABLE_02
-Text Label 1300 7000 2    50   ~ 0
+Text Label 1500 7000 2    50   ~ 0
 ENABLE_03
-Text Label 1300 7500 2    50   ~ 0
-ENABLE_04
-Text Label 1300 8000 2    50   ~ 0
-ENABLE_05
-Text Label 1300 8500 2    50   ~ 0
-ENABLE_06
-Text Label 2100 8500 0    50   ~ 0
-SUPPLY_06
-Text Label 2100 8000 0    50   ~ 0
-SUPPLY_05
-Text Label 2100 7500 0    50   ~ 0
-SUPPLY_04
-Text Label 2100 7000 0    50   ~ 0
-SUPPLY_03
-Text Label 2100 6500 0    50   ~ 0
-SUPPLY_02
-Text Label 2100 6000 0    50   ~ 0
+Text Label 2150 6000 0    50   ~ 0
 SUPPLY_01
+Text Label 2150 6500 0    50   ~ 0
+SUPPLY_02
+Text Label 2150 7000 0    50   ~ 0
+SUPPLY_03
 Wire Wire Line
-	1300 6000 1400 6000
+	1500 6000 1650 6000
 Wire Wire Line
-	1300 6500 1400 6500
+	1500 6500 1650 6500
 Wire Wire Line
-	1300 7000 1400 7000
+	1500 7000 1650 7000
 Wire Wire Line
-	1300 7500 1400 7500
+	2000 7000 2150 7000
 Wire Wire Line
-	1300 8000 1400 8000
+	2000 6500 2150 6500
 Wire Wire Line
-	1300 8500 1400 8500
-Wire Wire Line
-	2000 8500 2100 8500
-Wire Wire Line
-	2000 8000 2100 8000
-Wire Wire Line
-	2000 7500 2100 7500
-Wire Wire Line
-	2000 7000 2100 7000
-Wire Wire Line
-	2000 6500 2100 6500
-Wire Wire Line
-	2000 6000 2100 6000
+	2000 6000 2150 6000
 $Comp
 L power:GND #PWR?
-U 1 1 5ECF92A0
-P 2900 7850
-F 0 "#PWR?" H 2900 7600 50  0001 C CNN
-F 1 "GND" H 2905 7677 50  0000 C CNN
-F 2 "" H 2900 7850 50  0001 C CNN
-F 3 "" H 2900 7850 50  0001 C CNN
-	1    2900 7850
+U 1 1 5EE9AC5C
+P 1800 8250
+F 0 "#PWR?" H 1800 8000 50  0001 C CNN
+F 1 "GND" H 1805 8077 50  0000 C CNN
+F 2 "" H 1800 8250 50  0001 C CNN
+F 3 "" H 1800 8250 50  0001 C CNN
+	1    1800 8250
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR?
-U 1 1 5ECF9CB0
-P 2900 6650
-F 0 "#PWR?" H 2900 6500 50  0001 C CNN
-F 1 "+5V" H 2915 6823 50  0000 C CNN
-F 2 "" H 2900 6650 50  0001 C CNN
-F 3 "" H 2900 6650 50  0001 C CNN
-	1    2900 6650
+U 1 1 5EE9AEF9
+P 1800 7450
+F 0 "#PWR?" H 1800 7300 50  0001 C CNN
+F 1 "+5V" H 1815 7623 50  0000 C CNN
+F 2 "" H 1800 7450 50  0001 C CNN
+F 3 "" H 1800 7450 50  0001 C CNN
+	1    1800 7450
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2900 6650 2900 6750
+	1800 7450 1800 7550
 Wire Wire Line
-	2900 7750 2900 7850
-$Comp
-L 74xx:74HC14 U?
-U 1 1 5ED797E6
-P 4700 6000
-F 0 "U?" H 4700 6317 50  0000 C CNN
-F 1 "74HC14" H 4700 6226 50  0000 C CNN
-F 2 "" H 4700 6000 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 4700 6000 50  0001 C CNN
-	1    4700 6000
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74HC14 U?
-U 2 1 5ED797EC
-P 4700 6500
-F 0 "U?" H 4700 6817 50  0000 C CNN
-F 1 "74HC14" H 4700 6726 50  0000 C CNN
-F 2 "" H 4700 6500 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 4700 6500 50  0001 C CNN
-	2    4700 6500
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74HC14 U?
-U 3 1 5ED797F2
-P 4700 7000
-F 0 "U?" H 4700 7317 50  0000 C CNN
-F 1 "74HC14" H 4700 7226 50  0000 C CNN
-F 2 "" H 4700 7000 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 4700 7000 50  0001 C CNN
-	3    4700 7000
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74HC14 U?
-U 4 1 5ED797F8
-P 4700 7500
-F 0 "U?" H 4700 7817 50  0000 C CNN
-F 1 "74HC14" H 4700 7726 50  0000 C CNN
-F 2 "" H 4700 7500 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 4700 7500 50  0001 C CNN
-	4    4700 7500
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74HC14 U?
-U 5 1 5ED797FE
-P 4700 8000
-F 0 "U?" H 4700 8317 50  0000 C CNN
-F 1 "74HC14" H 4700 8226 50  0000 C CNN
-F 2 "" H 4700 8000 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 4700 8000 50  0001 C CNN
-	5    4700 8000
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74HC14 U?
-U 6 1 5ED79804
-P 4700 8500
-F 0 "U?" H 4700 8817 50  0000 C CNN
-F 1 "74HC14" H 4700 8726 50  0000 C CNN
-F 2 "" H 4700 8500 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 4700 8500 50  0001 C CNN
-	6    4700 8500
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74HC14 U?
-U 7 1 5ED7980A
-P 5900 7250
-F 0 "U?" H 6130 7296 50  0000 L CNN
-F 1 "74HC14" H 6130 7205 50  0000 L CNN
-F 2 "" H 5900 7250 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 5900 7250 50  0001 C CNN
-	7    5900 7250
-	1    0    0    -1  
-$EndComp
-Text Label 4300 6000 2    50   ~ 0
-ENABLE_07
-Text Label 4300 6500 2    50   ~ 0
-ENABLE_08
-Text Label 4300 7000 2    50   ~ 0
-ENABLE_09
-Text Label 4300 7500 2    50   ~ 0
-ENABLE_10
-Text Label 4300 8000 2    50   ~ 0
-ENABLE_11
-Text Label 4300 8500 2    50   ~ 0
-ENABLE_12
-Text Label 5100 8500 0    50   ~ 0
-SUPPLY_12
-Text Label 5100 8000 0    50   ~ 0
-SUPPLY_11
-Text Label 5100 7500 0    50   ~ 0
-SUPPLY_10
-Text Label 5100 7000 0    50   ~ 0
-SUPPLY_09
-Text Label 5100 6500 0    50   ~ 0
-SUPPLY_08
-Text Label 5100 6000 0    50   ~ 0
-SUPPLY_07
-Wire Wire Line
-	4300 6000 4400 6000
-Wire Wire Line
-	4300 6500 4400 6500
-Wire Wire Line
-	4300 7000 4400 7000
-Wire Wire Line
-	4300 7500 4400 7500
-Wire Wire Line
-	4300 8000 4400 8000
-Wire Wire Line
-	4300 8500 4400 8500
-Wire Wire Line
-	5000 8500 5100 8500
-Wire Wire Line
-	5000 8000 5100 8000
-Wire Wire Line
-	5000 7500 5100 7500
-Wire Wire Line
-	5000 7000 5100 7000
-Wire Wire Line
-	5000 6500 5100 6500
-Wire Wire Line
-	5000 6000 5100 6000
-$Comp
-L power:GND #PWR?
-U 1 1 5ED79828
-P 5900 7850
-F 0 "#PWR?" H 5900 7600 50  0001 C CNN
-F 1 "GND" H 5905 7677 50  0000 C CNN
-F 2 "" H 5900 7850 50  0001 C CNN
-F 3 "" H 5900 7850 50  0001 C CNN
-	1    5900 7850
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 5ED7982E
-P 5900 6650
-F 0 "#PWR?" H 5900 6500 50  0001 C CNN
-F 1 "+5V" H 5915 6823 50  0000 C CNN
-F 2 "" H 5900 6650 50  0001 C CNN
-F 3 "" H 5900 6650 50  0001 C CNN
-	1    5900 6650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5900 6650 5900 6750
-Wire Wire Line
-	5900 7750 5900 7850
+	1800 8150 1800 8250
+Wire Notes Line
+	700  8950 3100 8950
+Wire Notes Line
+	3100 5500 700  5500
 $EndSCHEMATC

@@ -132,9 +132,9 @@ For the virtual ground, use 296-51364-1-ND (digikey).
 CMOS Inverter
 =============
 
-Need 184 in total, buy 250 for cheaper at 0.26752.
+Need 92 in total.
 
-1727-3781-ND (digikey)
+1727-6598-1-ND (digikey)
 
 
 CAN Transceiver
