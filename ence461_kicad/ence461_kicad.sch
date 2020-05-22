@@ -1492,4 +1492,126 @@ Wire Notes Line
 	6400 11150 3200 11150
 Text Notes 3350 11050 0    101  ~ 0
 CAN Transceiver Circuit
+$Comp
+L ence461_symbol_library:TPS717DRV-WSON U?
+U 1 1 5F0550EF
+P 8000 9950
+F 0 "U?" H 8000 10065 50  0000 C CNN
+F 1 "TPS717DRV-WSON" H 8000 9974 50  0000 C CNN
+F 2 "Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm_ThermalVias" H 8000 9950 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tps717.pdf?HQS=TI-null-null-digikeymode-df-pf-null-wwe&ts=1590186425971" H 8000 9950 50  0001 C CNN
+	1    8000 9950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F0554ED
+P 8000 10700
+F 0 "#PWR?" H 8000 10450 50  0001 C CNN
+F 1 "GND" H 8005 10527 50  0000 C CNN
+F 2 "" H 8000 10700 50  0001 C CNN
+F 3 "" H 8000 10700 50  0001 C CNN
+	1    8000 10700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5F05E77E
+P 8500 10400
+F 0 "C?" H 8592 10446 50  0000 L CNN
+F 1 "0.01 uF" H 8592 10355 50  0000 L CNN
+F 2 "" H 8500 10400 50  0001 C CNN
+F 3 "~" H 8500 10400 50  0001 C CNN
+	1    8500 10400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5F05EC29
+P 7000 10400
+F 0 "C?" H 7092 10446 50  0000 L CNN
+F 1 "1 uF" H 7092 10355 50  0000 L CNN
+F 2 "" H 7000 10400 50  0001 C CNN
+F 3 "~" H 7000 10400 50  0001 C CNN
+	1    7000 10400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5F05F1F3
+P 9000 10400
+F 0 "C?" H 9092 10446 50  0000 L CNN
+F 1 "1 uF" H 9092 10355 50  0000 L CNN
+F 2 "" H 9000 10400 50  0001 C CNN
+F 3 "~" H 9000 10400 50  0001 C CNN
+	1    9000 10400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8350 10200 8500 10200
+Wire Wire Line
+	8500 10200 8500 10300
+Wire Wire Line
+	8350 10100 9000 10100
+Wire Wire Line
+	8000 10500 8000 10600
+Wire Wire Line
+	8000 10600 8500 10600
+Wire Wire Line
+	8500 10600 8500 10500
+Connection ~ 8000 10600
+Wire Wire Line
+	8000 10600 8000 10700
+Wire Wire Line
+	8500 10600 9000 10600
+Connection ~ 8500 10600
+Wire Wire Line
+	8000 10600 7000 10600
+Wire Wire Line
+	7000 10600 7000 10500
+Wire Wire Line
+	7650 10100 7400 10100
+Wire Wire Line
+	7000 10100 7000 10300
+Wire Wire Line
+	9000 10500 9000 10600
+Wire Wire Line
+	9000 10300 9000 10100
+Wire Wire Line
+	7650 10200 7400 10200
+Wire Wire Line
+	7400 10200 7400 10100
+Connection ~ 7400 10100
+Wire Wire Line
+	7400 10100 7000 10100
+$Comp
+L power:+6V #PWR?
+U 1 1 5F0FB207
+P 7000 10000
+F 0 "#PWR?" H 7000 9850 50  0001 C CNN
+F 1 "+6V" H 7015 10173 50  0000 C CNN
+F 2 "" H 7000 10000 50  0001 C CNN
+F 3 "" H 7000 10000 50  0001 C CNN
+	1    7000 10000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 5F0FB4D8
+P 9000 10000
+F 0 "#PWR?" H 9000 9850 50  0001 C CNN
+F 1 "+5V" H 9015 10173 50  0000 C CNN
+F 2 "" H 9000 10000 50  0001 C CNN
+F 3 "" H 9000 10000 50  0001 C CNN
+	1    9000 10000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9000 10000 9000 10100
+Connection ~ 9000 10100
+Wire Wire Line
+	7000 10000 7000 10100
+Connection ~ 7000 10100
+Text Notes 7500 9700 0    50   ~ 0
+Typical application from datasheet
 $EndSCHEMATC

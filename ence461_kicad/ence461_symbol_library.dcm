@@ -10,4 +10,9 @@ D High Speed Low Power CAN, CAN FD Transceiver
 F https://www.onsemi.com/pub/Collateral/NCV7344-D.PDF
 $ENDCMP
 #
+$CMP TPS717DRV-WSON
+D Low-Noise, High-Bandwidth PSRR, Low-Dropout, 150-mA Linear Regulator
+F http://www.ti.com/lit/ds/symlink/tps717.pdf?HQS=TI-null-null-digikeymode-df-pf-null-wwe&ts=1590186425971
+$ENDCMP
+#
 #End Doc Library
