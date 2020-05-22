@@ -34,9 +34,10 @@ The half-rail voltage of $\SI{2.5}{\volt}$ is provided by a virtual ground op-am
 \end{figure}
 
 The op-amps are required to switch to a low power mode when no ADC readings are taking place.
-Due to physical size constraints and part availability we have opted to disable the power supply to the op-amps to achieve a low power state.
+Due to physical size constraints and part availability we have opted to drive the positive supply rail down to the negative supply rail to achieve a low power state.
+This is achieved with CMOS inverters, as these will be able to source enough current for the op-amps to operate.
 The main drawback of this method is the start-up time to enable the op-amps.
-The sum of the time taken to start the linear regulator and op-amp is less than $\SI{150}{\micro\second}$ (this is equivalent to $\SI{21.6}{\degree}$ of the $\SI{400}{\hertz}$ AC signal).
+The sum of the time taken to switch the op-amp back on is $\SI{50}{\micro\second}$ (this is a phase angle of $\SI{7.2}{\degree}$ with respect to the AC signal).
 
 The source impedance is specified as being less than $\SI{100}{\ohm}$.
 A input impedance that is an order of magnitude higher than the source impedance is required for maximum voltage transfer and minimum current drain.
