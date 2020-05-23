@@ -193,6 +193,7 @@ LEDS		02 x 10mA	20	05mA	10
 =======================================================
 Total				60		40
 
+Revision 17
 
 CAN Transceiver
 ===============
@@ -207,5 +208,57 @@ P MOSFET: RZM001P02T2LCT-ND (digikey)
 
 Microcontroller
 ===============
-
 ATSAMC21N17A-ANTCT-ND (digikey)
+
+5V Regulator
+============
+Option 1)
+Devices		worst case		typical
+ADC amplifiers	13 x 03mA	39	.75mA	9.75
+Half rail	01 x 01mA	01	01mA	01
+CAN driver	01 x 70mA	70	47mA	47
+Hex inverter	01 x 50mA	50	50mA	50
+Micro		01 x 50mA	50	20mA	20
+LED		01 x 19mA	19	19mA	19
+=======================================================
+Total				118		145.75
+
+Thermal design TPS71750QDRVRQ1‎
+PD worst case operating = (Vin - Vout) x Imax => (6-5)*145.75 = 145.75mW
+Tj = Ta + Tt*PDmax => 105 + 2.7  x 146mW = 105.39 degrees C
+Tj = Ta + Tt*PDmax => 105 + 40.9 x 146mW = 110 degrees C
+Tj > Tj MAX (125 degrees) :. device is suitable from thermal perspective.
+100 x 0.80411 = $80.41
+
+option 2)
+Devices		worst case		typical
+ADC amplifiers	13 x 03mA	39	.75mA	9.75
+Half rail	01 x 01mA	01	01mA	01
+CAN driver	01 x 70mA	70	47mA	47
+Micro		01 x 50mA	50	20mA	20
+LED		01 x 19mA	19	19mA	19
+=======================================================
+Total				118		95.75
+PD worst case operating = (Vin - Vout) x Imax => (6-5)*95.75 = 95.75mW
+Tj > Tj MAX (125 degrees) (current reduced :. power reduced) :. device is suitable from thermal perspective.
+100 x 0.80411 = $80.41
+
+option 3)
+Devices		worst case		typical
+ADC amplifiers	13 x 03mA	39	.75mA	9.75
+Half rail	01 x 01mA	01	.5mA	.5
+CAN driver	01 x 70mA	70	47mA	47
+Micro		01 x 50mA	50	20mA	20
+LED		01 x 19mA	19	19mA	19
+=======================================================
+Total				118		95.25
+
+PD worst case operating = (Vin - Vout) x Imax => (6-5) x 95.25 = 95.25mW
+PD max = (T max - T ambient) / Theta JA => (125-105) / 65 = 317.46mW
+PD < PDmax :. device is ok.
+@ PD = (6-5)*145.75 = 145.75mW < PD max
+100 x 2.33750 = 233.75
+Choose his option because
+a 5V amps on 1 rail, micro and CAN on other
+b 5V amps & hex inverter 1 rail, micro and CAN on other
+c 5V amps, hex and CAN, micro on other use CAN wake on Rx 
