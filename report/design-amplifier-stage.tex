@@ -30,17 +30,17 @@ The half-rail voltage of $\SI{2.5}{\volt}$ is provided by a virtual ground op-am
 	\label{fig:half-supply}
 \end{subfigure}
 
-\caption{Operational amplifer circuits used.}
+\caption{The operational amplifer circuits used.}
 \end{figure}
 
 The op-amps are required to switch to a low power mode when no ADC readings are taking place.
-Due to physical size constraints and part availability we have opted to drive the positive supply rail down to the negative supply rail to achieve a low power state.
-This is achieved with CMOS inverters, as these will be able to source enough current for the op-amps to operate.
+Due to physical size constraints and part availability we have opted to drive the positive supply rail down to the level of the negative supply rail to achieve a low power state.
+This is done with a CMOS inverter IC.
 The main drawback of this method is the start-up time to enable the op-amps.
 The sum of the time taken to switch the op-amp back on is $\SI{50}{\micro\second}$ (this is a phase angle of $\SI{7.2}{\degree}$ with respect to the AC signal).
 
 The source impedance is specified as being less than $\SI{100}{\ohm}$.
-A input impedance that is an order of magnitude higher than the source impedance is required for maximum voltage transfer and minimum current drain.
+A input impedance that is at least an order of magnitude higher than the source impedance is required for maximum voltage transfer and minimum current drain.
 $Z_i = \SI{1}{\kilo\ohm}$ was decided upon, because it is 10 times higher than the worst-case source impedance.
 Equations \ref{eq:r1} and \ref{eq:r2} show the derived formulae for the resistors based upon the given $Z_i$ and $A$ values.
 \begin{align}
@@ -50,15 +50,14 @@ Equations \ref{eq:r1} and \ref{eq:r2} show the derived formulae for the resistor
 \end{align}
 
 12 of these non-inverting amplifier circuits are required for each daughterboard.
-The LMV324 selected as it has four op-amp circuits in one package, reducing the amount of space used on the board and the overall cost.
-An additional package configured as unity gain amplifer produces the half-rail reference from a voltage divider input.
-High value resistors are required in the divider (typically 100k$\omega$ to prevent excessive static current drain.
-However these produce greater thermal noise, especially at high ambient temperatures, which is undesirable for ADC applications. Hence two 2k5$\omega$ balence nosie with 
-static current drain of $\SI{1}{\milli\ampere}$
+The LMV324 (\textcolor{red}{add citation}) selected as it has four op-amp circuits in one package, reducing the amount of space used on the board and the overall cost.
+An additional op-amp package configured as a unity gain amplifer produces the half-rail reference from a voltage divider input.
+High value resistors are required in the divider (typically $\SI{100}{\kilo\ohm}$ to prevent excessive static current drain.
+However these produce greater thermal noise, especially at high ambient temperatures, which is undesirable for ADC applications.
+Hence two $\SI{2.5}{\kilo\ohm}$ resistors balance the noise with a static current drain of $\SI{1}{\milli\ampere}$
 
-a 
-Thermal calcuatins (not shown here for breitivy) show that the OpAmps will supply mimimal current into the microprocessor ADC inputs thus their power dissapation is reltively low.
-Power dissabpatin is fiunction of the supply votage to ouput volateg diffence, ouput voalge diffenc to ground (for single suplkyt decies) and the ouput current.
-With low power dissaption there is comfortable margin between the ambinent rempature of 105 degress, the gaurettened junction operting tempoate of 125 ddegress, and the device abolute maximu of 150 degrees.
-
-Additnally worst case queincent current is 150uA.
+Thermal calculations (\textcolor{red}{add reference to appendix}) show that the op-amps will supply minimal current into the microprocessor's ADC inputs.
+Thus their power dissapation is relatively low.
+The power dissapation is a function of the difference between supply voltage to output voltage, output voltage difference to ground (for single supply devices) and the output current.
+With low power dissapation, there is a comfortable margin between the ambient temperature of $\SI{105}{\degreeCelsius}$, the junction operating temperature of $\SI{125}{\degreeCelsius}$, and the device absolute maximum of $\SI{150}{\degreeCelsius}$.
+Additionally the worst case quiescent current is $\SI{150}{\micro\ampere}$.
