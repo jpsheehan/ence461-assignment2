@@ -5,6 +5,10 @@ D Inverter IC 3 Channel Schmitt Trigger 8-TSSOP
 F https://assets.nexperia.com/documents/data-sheet/74HC_HCT3G14.pdf
 $ENDCMP
 #
+$CMP MIC5202
+D Dual 100 mA Low-Dropout Regulator
+$ENDCMP
+#
 $CMP MKE16Z32VLD4
 D Kinetis KE1xZ with up to 64 KBFlash
 F https://nz.mouser.com/datasheet/2/302/nxp_phgl-s-a0007665085-1-1750475.pdf
