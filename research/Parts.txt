@@ -178,4 +178,5 @@ NCV7344D13R2GOSCT-ND (digikey)
 LED Indication
 ==============
 
-475-2516-1-ND (digikey)
+Red LED: 475-2516-1-ND (digikey)
+P MOSFET: RZM001P02T2LCT-ND (digikey)
