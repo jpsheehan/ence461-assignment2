@@ -5,6 +5,11 @@ D Inverter IC 3 Channel Schmitt Trigger 8-TSSOP
 F https://assets.nexperia.com/documents/data-sheet/74HC_HCT3G14.pdf
 $ENDCMP
 #
+$CMP MKE16Z32VLD4
+D Kinetis KE1xZ with up to 64 KBFlash
+F https://nz.mouser.com/datasheet/2/302/nxp_phgl-s-a0007665085-1-1750475.pdf
+$ENDCMP
+#
 $CMP NCV7344D13R2GOSCT-ND
 D High Speed Low Power CAN, CAN FD Transceiver
 F https://www.onsemi.com/pub/Collateral/NCV7344-D.PDF
