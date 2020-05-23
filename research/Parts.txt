@@ -101,6 +101,9 @@ Maybe later
 
 Op-Amps:
 ========
+
+OPAMP FOR VIRTUAL GROUND: 296-51364-1-ND (digikey)
+
 Option 1
 Need 12 opamp circuits for each slave board.
 and one more for reliable 1/2 rail.
@@ -183,3 +186,20 @@ PD worst case = (Vin - Vout) x Imax => (6-3.3)*70m = 189mW
 PD worst typical operating = (Vin - Vout) x Imax => (6-3.3)*30m = 81mW
 PD max operating = (Vin - Vout) x Imax => (6-3.3)*80m = 216mW
 [Board must be designed for high temperature operation JEDEC HighK (2s2p)] 
+
+5V3 devices		worst case	typical
+micro		11 x 40mA	40	30mA	30
+LEDS		02 x 10mA	20	05mA	10
+=======================================================
+Total				60		40
+
+
+CAN Transceiver
+===============
+NCV7344D13R2GOSCT-ND (digikey)
+
+
+LED Indication
+==============
+Red LED: 475-2516-1-ND (digikey)
+P MOSFET: RZM001P02T2LCT-ND (digikey)
