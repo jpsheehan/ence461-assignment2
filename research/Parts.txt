@@ -169,8 +169,8 @@ LEDS		02 x 05mA	10	02 x 05mA	10
 Total				50			40
 
 PD worst case operating = (Vin - Vout) x Imax => (6-3.3)*50m = 135mW
-PD Max = (Top-Tambiant T JA
-
+PD Max = (Toperating-Tambient)/T JA => (125-105)/65 = 307mW
+[Board must be design for high temperature operation JEDEC HighK (2s2p)] 
 
 3V3 devices		worst case	typical
 micro		01 x 80mA	80	01 x 50mA	50 30
@@ -179,5 +179,7 @@ LEDS		01 x 19mA	20	01 x 19mA	19
 Total				100			70
 
 TPS71433DRV
-PD worst case operating = (Vin - Vout) x Imax => (6-3.3)*70m = 189mW
-PD worst case operating = (Vin - Vout) x Imax => (6-3.3)*30m = 81mW
+PD worst case = (Vin - Vout) x Imax => (6-3.3)*70m = 189mW
+PD worst typical operating = (Vin - Vout) x Imax => (6-3.3)*30m = 81mW
+PD max operating = (Vin - Vout) x Imax => (6-3.3)*80m = 216mW
+[Board must be designed for high temperature operation JEDEC HighK (2s2p)] 
