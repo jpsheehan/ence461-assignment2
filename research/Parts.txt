@@ -140,4 +140,9 @@ Need 92 in total.
 CAN Transceiver
 ===============
 
-NCV7344D13R2GOSCT-ND
+NCV7344D13R2GOSCT-ND (digikey)
+
+LED Indication
+==============
+
+475-2516-1-ND (digikey)
