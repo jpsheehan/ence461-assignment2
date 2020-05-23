@@ -107,7 +107,7 @@ and one more for reliable 1/2 rail.
 
 The LMV324AIPWR has four opamp circuits per package.
 So we only need 12 / 4 * 92 = 368 of these.
-The part number on Digi-Key is [296-51366-1-ND](https://www.digikey.co.nz/product-detail/en/texas-instruments/LMV324AIPWR/296-51366-1-ND/9745730).
+The part number on Digi-Key is [296-51366-1-ND ](https://www.digikey.co.nz/product-detail/en/texas-instruments/LMV324AIPWR/296-51366-1-ND/9745730).
 For 368, we have a buy price of $0.36704 per unit
 
 This part doesn't have an enable line so we will have to also use a mosfet to drive the positive supply voltage to ground to disable. 
@@ -115,6 +115,7 @@ This chip has a 50 us startup time.
 Gets to within 20mV of rail voltage.
 
 150uA * 13 devices = 1.95mA == 2mA ??
+
 
 Option 2
 MCP632T-E/MFCT-ND provides chip enable/disable function and T operating of 125 degress. Tmax is 150 degrees so based on the likely current ouputs with no 
@@ -127,17 +128,42 @@ Checking pricing 368 dual units at 1.483 ea is the lowest cost option at $545.70
 Gets to within 40mV of rail voltage.
 
 
-For the virtual ground, use 296-51364-1-ND (digikey).
 
-CMOS Inverter
-=============
+Option 3 - revised system
+1)
+5V devices		worst case	typical
+ADC amplifiers	13 x 03mA	39	.6mA	9.75
+Half rail	01 x 01mA	01	01	01
+CAN driver	01 x 70mA	70	47mA	47
+Hex inverter	01 x 50mA	50	50mA	50
+=======================================================
+Total				118		110
 
-Need 92 in total.
+Thermal consderations - TPS76950DBVT
+PD worst case operating = (Vin - Vout) x Imax => (6-5)*100m = 100mW
+PD max = (TJ - TA)/ thetaJA => (125-105) / 180 = 110mW [Board must be design for high temperature operation JEDEC HighK (2s2p)] 
+Thus PDMax > PD worst therfore device is suitable fro mthermal perspective.
+But 110 > 100mA
 
-1727-6598-1-ND (digikey)
+2)
+5V devices		worst case	typical
+ADC amplifiers	13 x 03mA	39	.6mA	9.75
+Half rail	01 x 01mA	01	01	01
+CAN driver	01 x 70mA	70	47mA	47
+Hex inverter	01 x 50mA	50	50mA	50
+=======================================================
+Total				118		110
+
+Thermal consderations - TPS717DRV(WSON
+PD worst case operating = (Vin - Vout) x Imax => (6-5)*110m = 110mW
+Jt = Tj + Tt*PDmax => 105 + 2.7  x 120mW = 105 degrees C
+Jt = Tj + Tt*PDmax => 105 + 40.9 x 120mW = 109 degrees C
+Tj < Tj MAX (125 degrees) therfore device is suitable fro mthermal perspective.
 
 
-CAN Transceiver
-===============
+5V3 devices		worst case	typical
+micro		11 x 40mA	40	30mA	30
+LEDS		02 x 10mA	20	05mA	10
+=======================================================
+Total				60		40
 
-NCV7344D13R2GOSCT-ND
