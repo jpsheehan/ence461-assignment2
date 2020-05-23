@@ -208,4 +208,4 @@ P MOSFET: RZM001P02T2LCT-ND (digikey)
 Microcontroller
 ===============
 
-497-STM32F091CBT7-ND (digikey)
+ATSAMC21N17A-ANTCT-ND (digikey)
