@@ -1781,4 +1781,68 @@ Wire Notes Line
 	3200 8950 6400 8950
 Text Notes 3350 8850 0    101  ~ 0
 External Connectors
+Text Label 10950 1500 2    50   ~ 0
+ENABLE_01
+Text Label 10950 1700 2    50   ~ 0
+ENABLE_03
+Text Label 10950 1600 2    50   ~ 0
+ENABLE_02
+Text Label 11000 2000 0    50   ~ 0
+ADC_01
+Text Label 11000 2100 0    50   ~ 0
+ADC_02
+Text Label 11000 2200 0    50   ~ 0
+ADC_03
+Text Label 11000 2300 0    50   ~ 0
+ADC_04
+Text Label 11000 2400 0    50   ~ 0
+ADC_05
+Text Label 11000 2500 0    50   ~ 0
+ADC_06
+Text Label 11000 2600 0    50   ~ 0
+ADC_07
+Text Label 11000 2700 0    50   ~ 0
+ADC_08
+Text Label 11000 2800 0    50   ~ 0
+ADC_09
+Text Label 11000 2900 0    50   ~ 0
+ADC_10
+Text Label 11000 3000 0    50   ~ 0
+ADC_11
+Text Label 11000 3100 0    50   ~ 0
+ADC_12
+Text Label 11150 3700 2    50   ~ 0
+CAN_STANDBY
+Text Label 11150 3600 2    50   ~ 0
+CAN_RX
+Text Label 11150 3500 2    50   ~ 0
+CAN_TX
+$Comp
+L Device:LED D?
+U 1 1 5F290098
+P 12650 9500
+F 0 "D?" H 12643 9245 50  0000 C CNN
+F 1 "LED" H 12643 9336 50  0000 C CNN
+F 2 "" H 12650 9500 50  0001 C CNN
+F 3 "~" H 12650 9500 50  0001 C CNN
+	1    12650 9500
+	-1   0    0    1   
+$EndComp
+Text Label 13000 9500 0    50   ~ 0
+LED_STATUS
+$Comp
+L Device:R_Small R?
+U 1 1 5F2AB002
+P 12300 9500
+F 0 "R?" V 12104 9500 50  0000 C CNN
+F 1 "R_Small" V 12195 9500 50  0000 C CNN
+F 2 "" H 12300 9500 50  0001 C CNN
+F 3 "~" H 12300 9500 50  0001 C CNN
+	1    12300 9500
+	0    1    1    0   
+$EndComp
+Text Notes 12250 9750 0    50   ~ 0
+not entirely convinced about led
+Text Notes 4000 8450 0    50   ~ 0
+needs programming connector
 $EndSCHEMATC
