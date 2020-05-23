@@ -129,7 +129,7 @@ Gets to within 40mV of rail voltage.
 
 
 
-Option 3 - revised system
+Revised system
 1)
 5V devices		worst case	typical
 ADC amplifiers	13 x 03mA	39	.6mA	9.75
@@ -155,15 +155,29 @@ Hex inverter	01 x 50mA	50	50mA	50
 Total				118		110
 
 Thermal consderations - TPS717DRV(WSON
+
 PD worst case operating = (Vin - Vout) x Imax => (6-5)*110m = 110mW
 Jt = Tj + Tt*PDmax => 105 + 2.7  x 120mW = 105 degrees C
 Jt = Tj + Tt*PDmax => 105 + 40.9 x 120mW = 109 degrees C
 Tj < Tj MAX (125 degrees) therfore device is suitable fro mthermal perspective.
 
+3)
+3V3 devices		worst case	typical
+micro		01 x 40mA	40	01 x 50mA	30
+LEDS		02 x 05mA	10	02 x 05mA	10
+===========================================================
+Total				50			40
 
-5V3 devices		worst case	typical
-micro		11 x 40mA	40	30mA	30
-LEDS		02 x 10mA	20	05mA	10
-=======================================================
-Total				60		40
+PD worst case operating = (Vin - Vout) x Imax => (6-3.3)*50m = 135mW
+PD Max = (Top-Tambiant T JA
 
+
+3V3 devices		worst case	typical
+micro		01 x 80mA	80	01 x 50mA	50 30
+LEDS		01 x 19mA	20	01 x 19mA	19
+===========================================================
+Total				100			70
+
+TPS71433DRV
+PD worst case operating = (Vin - Vout) x Imax => (6-3.3)*70m = 189mW
+PD worst case operating = (Vin - Vout) x Imax => (6-3.3)*30m = 81mW
