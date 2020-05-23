@@ -257,8 +257,19 @@ PD worst case operating = (Vin - Vout) x Imax => (6-5) x 95.25 = 95.25mW
 PD max = (T max - T ambient) / Theta JA => (125-105) / 65 = 317.46mW
 PD < PDmax :. device is ok.
 @ PD = (6-5)*145.75 = 145.75mW < PD max
-100 x 2.33750 = 233.75
-Choose his option because
+100 x 2.33750 = 233.75 digikey
+OR
+100 x MIC5210-5.0YMM # 1.87 = $187
+!st option = less physcial space, 2nd option lower price.
 a 5V amps on 1 rail, micro and CAN on other
 b 5V amps & hex inverter 1 rail, micro and CAN on other
 c 5V amps, hex and CAN, micro on other use CAN wake on Rx 
+
+Cables and Connectors
+150mA x 92 devices = 13.8 amps = > 19.2A
+Split into 4 termainton points = 3.45 each at the point of supply. 4.8A if later expand.
+rATE SUPPLKY CONNECTORS AT 5a EACH.
+Rate PSU cable to 2.9A based that cable will not run at full curret for extended duration and 
+only the sectsion of cable nearest the suply wil need to carry full current.
+2.9A = 17AWG = 1.15mm = 1.04mm^2
+If insultatin displacemtn can do 18,18,16 AWG use this. 2x pwr, 2x2 buss, 2x gnd 
