@@ -101,6 +101,9 @@ Maybe later
 
 Op-Amps:
 ========
+
+OPAMP FOR VIRTUAL GROUND: 296-51364-1-ND (digikey)
+
 Option 1
 Need 12 opamp circuits for each slave board.
 and one more for reliable 1/2 rail.
