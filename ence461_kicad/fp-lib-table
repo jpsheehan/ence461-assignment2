@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name ence461_kicad)(type KiCad)(uri ${KIPRJMOD}/ence461_kicad.pretty)(options "")(descr ""))
+)
