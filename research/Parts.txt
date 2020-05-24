@@ -257,9 +257,9 @@ PD worst case operating = (Vin - Vout) x Imax => (6-5) x 95.25 = 95.25mW
 PD max = (T max - T ambient) / Theta JA => (125-105) / 65 = 317.46mW
 PD < PDmax :. device is ok.
 @ PD = (6-5)*145.75 = 145.75mW < PD max
-100 x 2.33750 = 233.75 digikey
+100 x MIC5202-5.0YMM @ 2.33750 = 233.75 digikey
 OR
-100 x MIC5210-5.0YMM # 1.87 = $187
+100 x MIC5210-5.0YMM @ 1.87 = $187
 !st option = less physcial space, 2nd option lower price.
 a 5V amps on 1 rail, micro and CAN on other
 b 5V amps & hex inverter 1 rail, micro and CAN on other
@@ -273,3 +273,14 @@ Rate PSU cable to 2.9A based that cable will not run at full curret for extended
 only the sectsion of cable nearest the suply wil need to carry full current.
 2.9A = 17AWG = 1.15mm = 1.04mm^2
 If insultatin displacemtn can do 18,18,16 AWG use this. 2x pwr, 2x2 buss, 2x gnd 
+
+Data cablling
+10way IDC ribbon cable, crimped strain relief plug, through hole PCB mount, 0.05 inch 1.27 mm pitch
+Plug		3230-10-0103-00		$1.87 x 100
+PCB socket	3221-10-0100-00		$.852 x 100
+Cable		3756/10 100 		$1.15760 x 25
+Either +0 AA 00 BB 0+ (2x buss, carries minimal pwr, say to power CCAN chips in standby rx mode)
+vs
+0 AA 0 BB 0 CC 0 (3 buss)
+128 ohm charertsic impeedance.
+Stranded 30AWG
