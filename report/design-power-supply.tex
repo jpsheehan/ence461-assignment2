@@ -1,12 +1,18 @@
 \subsection{Power Supply}
-Opamps are to be powered off 5V, a 2.5V (half rail) reference is required and we will assume, at this stage, microcontroller will be a 3.3V device. 
+Current consumption analysis determined 60 - 90 mA and 77-100 mA are required for the ADC and digital sections respectively. (Depending on whether indvidual control of ADC blocks is required, and maximum versues typical buss transceiver consumption.) 
+The MIC5202-5.0YMM was selected to provide an independant 5V 100mA output, with disable function, to each section; thus providing the smallest physical footprint and zero ADC current consumption in low power mode.
+
+Opamps are 5V single supply rail devices , a 2.5V (half rail) reference is required and we will assume, at this stage, microcontroller will be a 3.3V device. 
 Therefore multiple supply rails are needed and two options are considered: Option 1, two seperate regulators; Option 2, a signle regulratot wiht 5V and 3V3 outputs. 
 Additionally the the 5V and/or half rail may need to be conencted to the micro ADC references, but is is assumed that the microprocessr current draw is insiginificant.
 
 \subsection{OpAmp Supply}
-5V supply to Opamp ADC amplifiers
-Requirements:
-Linear device
+A voltage divider off the 5V ADC rail, with voltage follower op amp, provides the 2.5V half rail reference supply. Divider current is 0.5mA, balencing the conflicting requiremtns of low quiencent current with low value resistors to reduce thermal noise (associated with high ambient temperatures) in the ADC section
+
+\subsection{MCU Supply}
+
+
+Requirements: Linear device,
 5V output
 >= 105 degrees
 6V input.
