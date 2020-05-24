@@ -267,6 +267,9 @@ c 5V amps, hex and CAN, micro on other use CAN wake on Rx
 
 Cables and Connectors
 ============================================================
+
+Power
+------
 150mA x 92 devices = 13.8 amps = > 19.2A
 Split into 4 termainton points = 3.45 each at the point of supply. 4.8A if later expandto 128 nodes.
 rATE SUPPLKY CONNECTORS AT 5a EACH.
@@ -285,8 +288,7 @@ Digikey:
 67010 BK321 Black
 67010 RD321 Red
 
-Power
-------
+
 Choose
 TB002-500-02BE .38930  x 100
 based on price and requiremt to get 2x 17AWG conductors into the terminal block.
@@ -295,25 +297,41 @@ Alternative not used.
 Plug 	691381000002 2.34860 x 100
 Socket	691382000002 0.75070 x 100
 
-
 Data
 -----
+Ribbon cable chosen for easy interconect, and speed.
+10 way is more readily avialbel than 8 way.
 10way IDC ribbon cable, crimped strain relief plug, through hole PCB mount, 0.05 inch 1.27 mm pitch
+Split buss into 2 feeders. 92/2 = 46 units. 45 interconecnted at 160mm = 1360mm = 7.36m
+Assume master is 10m from motherboard: 10m x 2 feeders = 20m
+20m + 7.36m = 27.36 => 30.48m (100 ft)
 Plug		3230-10-0103-00		$1.87 x 100
 PCB socket	3221-10-0100-00		$.852 x 100
+<<<<<<< HEAD
 Cable		3756/10 100 		$1.15760 x 25
 
+=======
+Cable		3756/10 100 		$46.05000 x 1 = $46.05000
+>>>>>>> 66b855b4c92f8af61c3a72c46185c5a99e1565bd
 	Conductors size is 30AWG (nominally 270kHz for 100% skin depth)
 	Actual cable uses 7 strands of 38AWG (nominally 1750kHz for 100% skin depth)
 	Z characterist 138 ohms balenced, velocity factor 74%, velocity of prop 4.53nSec/m.
 	(have chosen a cable with slight higher charestic impeedence to achvieve a signhlt higher voelcity factor, knowing
-	 that the bus is near end and far end terminated to 120 ohm this actual presenr 130 ohm parallel.
-	If needed this could be reduce this to 120 ohm by chaging the buss termial reistor values.)
+	 that the bus is near end and far end terminated to 120 ohm this actually presenr 130 ohm parallel.
+	If needed this could be reduce this to 120 ohm by changing the buss termial reistor values.)
 	coudl reduce the values of the resistors,)
-Choose +0 AA 00 BB 0+ (2x buss conducters enclised surrounded by signal ground.
-	Optiontally termina lsignla ground to power groudn at the slave borads using a approate capacitor.)
-Not 0 AA 0 BB 0 CC 0 (3 buss)
 
+
+
+Choose 00 AA 00 BB 00 (1-10) (2x buss conducters enclised surrounded by signal ground.
+	This is chosen so that the cabel can be reversed without damage - only buss B is conencted in stead of buss A.
+	Further, each data conductor has an signal gound condcutor next to it to minmise indcued noise.  
+	(Optiontally termina lsignla ground to power groudn at the slave borads using a approate capacitor.)
+Not 0 AA 0 BB 0 CC 0 (3 buss) or +0 AA 00 BB 0+ (power on bus)
+
+The master unit.
+4 power supply terminal blocks or simalr rated to 5A.
+2 CAN bus ribbon cable terminations.
 
 Jesse's Power Connector Search:
 ===============================
