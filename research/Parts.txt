@@ -302,6 +302,7 @@ Data
 Plug		3230-10-0103-00		$1.87 x 100
 PCB socket	3221-10-0100-00		$.852 x 100
 Cable		3756/10 100 		$1.15760 x 25
+
 	Conductors size is 30AWG (nominally 270kHz for 100% skin depth)
 	Actual cable uses 7 strands of 38AWG (nominally 1750kHz for 100% skin depth)
 	Z characterist 138 ohms balenced, velocity factor 74%, velocity of prop 4.53nSec/m.
@@ -313,3 +314,8 @@ Choose +0 AA 00 BB 0+ (2x buss conducters enclised surrounded by signal ground.
 	Optiontally termina lsignla ground to power groudn at the slave borads using a approate capacitor.)
 Not 0 AA 0 BB 0 CC 0 (3 buss)
 
+
+Jesse's Power Connector Search:
+===============================
+
+102-6145-ND about 0.38 each for 100
