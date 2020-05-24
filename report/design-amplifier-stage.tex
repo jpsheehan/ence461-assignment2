@@ -1,18 +1,34 @@
-\subsection{Amplifier Stage}
+\subsection{Signal Conditioning}
+
+The process of converting the voltage seen at the current transducer to a digital reading involves three stages (figure \ref{fig:conditioning}).
+The gain stage amplifies the voltage of the signal up to a reasonable level.
+The filtering stage removes any high frequency noise.
+Finally, the sampling stage performs the analog to digital (ADC) conversion.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{cat}
+	\caption{The signal conditioning process.}
+	\label{fig:conditioning}
+\end{figure}
+
+\subsubsection{Gain Stage}
 
 The current transducers output a $\pm \SI{25}{\milli\volt}$ signal centered around $\SI{2.5}{\volt}$.
 This signal must be amplified to $\pm \SI{2.5}{\volt}$ using an operational amplifier with a gain of 100.
-The amplified signal is then fed into an analog RC filter before going into the microcontroller's ADC input.
-However, the RC filter attenuates the output voltage by a factor of $\sqrt{2}$.
-Therefore, the gain of the amplifier stage must be 141 for the ADC voltage to have a full $\SI{5}{\volt}$ range.
+However, the filtering stage attenuates the output voltage by a factor of $\sqrt{2}$.
+This mu
+Therefore, the gain of the amplifier stage must be 141 for the voltage at the ADC input to have a full $\SI{5}{\volt}$ range.
 
-To amplify the signal from the current transducer, we have used a non-inverting op-amp circuit (figure \ref{fig:non-inverting-op-amp}).
-The input impedance and gain for the non-inverting amplifier circuit are given by equations \ref{eq:zi} and \ref{eq:gain} respectively.
+To amplify the signal from the current transducer, a non-inverting op-amp circuit (figure \ref{fig:non-inverting-op-amp}) was used.
+12 of these non-inverting amplifier circuits are required for each daughterboard.
+The LMV324 was selected as it has four op-amp circuits in one package.
+Resistor values of $R_1 = \SI{130}{\kilo\ohm}, R_2 = \SI{920}{\ohm}, R_3 = \SI{8.2}{\ohm}$ were chosen to give a gain of $141$ and an input impedance of $\SI{1}{\kilo\ohm}$ for each amplifier circuit.
+
 The half-rail voltage of $\SI{2.5}{\volt}$ is provided by a virtual ground op-amp circuit (figure \ref{fig:half-supply}).
-\begin{align}
-	Z_i &= \frac{R_1 (R_2 + R_3)}{R_1 + R_2 + R_3} \label{eq:zi} \\
-	A_v &= 1 + \frac{R_1}{R_2 + R_3}\label{eq:gain}
-\end{align}
+An LMV321 was used for this circuit.
+High value resistors are required in the divider (typically $\SI{100}{\kilo\ohm}$ to prevent excessive static current drain.
+However, these produce greater thermal noise (especially at high ambient temperatures) which is undesirable for ADC applications.
+Therefore, two $\SI{2.5}{\kilo\ohm}$ resistors balance the noise and have a static current drain of $\SI{1}{\milli\ampere}$.
 
 \begin{figure}[ht]
 \centering
@@ -36,31 +52,24 @@ The half-rail voltage of $\SI{2.5}{\volt}$ is provided by a virtual ground op-am
 \caption{The operational amplifer circuits used.}
 \end{figure}
 
-The op-amps are required to switch to a low power mode when no ADC readings are taking place.
-Due to physical size constraints and part availability we have opted to drive the positive supply rail down to the level of the negative supply rail to achieve a low power state.
-This is done with a CMOS inverter IC.
+The op-amps were required to switch to a low power mode when no ADC readings are taking place.
+The project requirements favour greater control over which op-amps can be turned on and off.
+Due to our op-amp selection, they must be turned off in blocks of 4.
+Therefore, it was decided that a CMOS inverter IC be used to drive the positive supply rail to ground.
 The main drawback of this method is the start-up time to enable the op-amps.
 The sum of the time taken to switch the op-amp back on is $\SI{50}{\micro\second}$ (this is a phase angle of $\SI{7.2}{\degree}$ with respect to the AC signal).
 
-The source impedance is specified as being less than $\SI{100}{\ohm}$.
-A input impedance that is at least an order of magnitude higher than the source impedance is required for maximum voltage transfer and minimum current drain.
-$Z_i = \SI{1}{\kilo\ohm}$ was decided upon, because it is 10 times higher than the worst-case source impedance.
-Equations \ref{eq:r1} and \ref{eq:r2} show the derived formulae for the resistors based upon the given $Z_i$ and $A$ values.
-\begin{align}
-	R_1 &= Z_i A \label{eq:r1} \\
-	R_2 + R_3 &= \frac{Z_i A}{A - 1} \label{eq:r2} \\[1em]
-	\therefore R_1 = \SI{130}{\kilo\ohm}, R_2 &= \SI{920}{\ohm}, R_3 = \SI{8.2}{\ohm} \nonumber
-\end{align}
+\subsubsection{Filtering Stage}
 
-12 of these non-inverting amplifier circuits are required for each daughterboard.
-The LMV324 (\textcolor{red}{add citation}) selected as it has four op-amp circuits in one package, reducing the amount of space used on the board and the overall cost.
-An additional op-amp package configured as a unity gain amplifer produces the half-rail reference from a voltage divider input.
-High value resistors are required in the divider (typically $\SI{100}{\kilo\ohm}$ to prevent excessive static current drain.
-However these produce greater thermal noise, especially at high ambient temperatures, which is undesirable for ADC applications.
-Hence two $\SI{2.5}{\kilo\ohm}$ resistors balance the noise with a static current drain of $\SI{1}{\milli\ampere}$
+A low-pass filter circuit was designed to attenuate frequencies above the expected $\SI{400}{\hertz}$.
+This was done with a simple RC filter (figure \ref{fig:filter}) as the cut-off frequency is less than $\SI{100}{\kilo\hertz}$.
+The filter was designed to have a cut-off frequency of $\SI{600}{\hertz}$ so that frequencies above $\SI{400}{\hertz}$ would be attenuated.
+The component values were $C = \SI{0.47}{\micro\farad}, R = \SI{560}{\ohm}$.
 
-Thermal calculations (\textcolor{red}{add reference to appendix}) show that the op-amps will supply minimal current into the microprocessor's ADC inputs.
-Thus their power dissapation is relatively low.
-The power dissapation is a function of the difference between supply voltage to output voltage, output voltage difference to ground (for single supply devices) and the output current.
-With low power dissapation, there is a comfortable margin between the ambient temperature of $\SI{105}{\degreeCelsius}$, the junction operating temperature of $\SI{125}{\degreeCelsius}$, and the device absolute maximum of $\SI{150}{\degreeCelsius}$.
-Additionally the worst case quiescent current is $\SI{150}{\micro\ampere}$.
+A drawback of this filter is that the output voltage is $V_{in} \sqrt{2}$.
+In this case, the maximum voltage the filter can output is $\SI{3.54}{\volt}$.
+To acheive maximum output of $\SI{5}{\volt}$, the gain of the amplifier stage would need to be $141$ and the voltage would need to have a $\pm\SI{3.54}{\volt}$ range, centered around $\SI{2.5}{\volt}$.
+Due to the requirements, this is not possible as the output voltage of the amplifier saturates at the supply rail voltage.
+
+\subsubsection{Sampling Stage}
+
