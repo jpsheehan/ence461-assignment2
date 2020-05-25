@@ -1,89 +1,20 @@
 \subsection{Power Supply}
-Opamps are to be powered off 5V, a 2.5V (half rail) reference is required and we will assume, at this stage, microcontroller will be a 3.3V device. 
-Therefore multiple supply rails are needed and two options are considered: Option 1, two seperate regulators; Option 2, a signle regulratot wiht 5V and 3V3 outputs. 
-Additionally the the 5V and/or half rail may need to be conencted to the micro ADC references, but is is assumed that the microprocessr current draw is insiginificant.
-
+Current consumption analysis determined 40 - 90 mA and 70.5 - 110 mA (typical - maximum) are required for the ADC and digital sections respectively. (This rqange is depentant on whether indvidual control of ADC blocks is required, and maximum versues typical consumption values are used.) 
+The MIC5202-5.0YMM was selected to provide an independant 5V 100mA output, with disable function, to each section; thus providing the smallest physical footprint and zero ADC current consumption in low power mode.
+ 
 \subsection{OpAmp Supply}
-5V supply to Opamp ADC amplifiers
-Requirements:
-Linear device
-5V output
->= 105 degrees
-6V input.
-RoHS compliant
-Surface mounted device.
-Low dropout voltage at full load. 
-Minimum additional components.
-Missing parameter: ouput current.
+The LMV324AIPWR opamp uses 70uA quiescent current. Since the each op amp channel output connects via low pass filter to an MCU ADC input, there is minimal load, thus operating current is small. A conservative value of 2mA per ADC channel has been estimated.
+A voltage divider off the 5V ADC rail, with voltage follower op amp, provides the 2.5V half rail reference supply. Divider current is 0.5mA, designed to balence the conflicting requirements of low quiescient current with low value resistors to reduce thermal noise (associated with high ambient temperatures) in the ADC section.
+A 3 port hex inverter provides the ability to enable/disable ADC channels in blocks of four and consumes 50mA.
 
-Output current calculations
-12 ADC channels and max current 2.7mA. Round up to 3mA gives some overhead.
-Further opamp for the 2.5 volt reference gives: 13 x 3mA = 39mA.
+\subsection{MCU Supply}
+At 48MHz operation expected current consumption of the ATSAMC21N17A-ANTCT-ND is a conservative 20-30mA, and 25mA has been used foir calculations. The CAN bus transceiver consumes 47 mA typical, 70mA maxlmum.
 
-Using the Digikey part selector 
-RoHS datasheet, active part, T operating 125 degrees, Vin max = 10V (allow some overhead for 6V input) gives:
-1)
-ADP1720ARMZ-R7
-Datasheet ADP1720ARMZ-R7
-Which has ouput current 50mA, VDO 275mV, -40 to 125 degree C
-2)
-Digikey 296-1364-2-ND, IC REG LINEAR 5V 100MA 8SOIC,
-%\url{http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10\&gotoUrl=http\%3A\%2F\%2Fwww.ti.com\%2Flit\%2Fgpn\%2Fua78l}
-3)
-Digikey TC1054-5.0VCT713CT-ND, TC1054-5.0VCT713 
-%Datasheet \url{http://ww1.microchip.com/downloads/en/DeviceDoc/21350E.pdf}
-
-% TC1054-5.0VCT713‎ was selected because
-It is rated to 125 degrees, and ambiant is 105 degrees
-Low drop out voltage (supply is  6V, 5V is required leaving minimal margin) typically 85mV max 120mV
-It provies control pins. These may be required to shutdown the ADC amps into low power, and provide a 5V supply status.
-Note that the ramp up time from shutdown to active is less than 100uSec.
-There are 100 and 150mA versions so this part can be uprated if larger current is required in the future.
-
-Thermal consderations.
-PD worst case operating = (Vin - Vout) x Imax => (6.5-5)*50 = 75mW
-PD max = (TJ - TA)/ thetaJA => (125-105) / 220 = 90.90mW
-Thus PDMax > PD worst therfore device is suitable from thermal perspective.
-However vin max = PD max/Imax + Vo => 90.909mW/50mA + 5 = 6.81V max.
-Thus the supply input voltage must not exceed 6.8V, however Vin max is 6.5V.
-
-93 units are required (assuming there is a need for 5V in the master unit)
-Purhase of 100 units is reduces the cost by 20C and gives seven spares
-100x 0.46340 = \$46.34
-Using the speciifcation of $\SI{2.7}{\milli\ampere}$ per omp, rounding up to $\SI{3}{\milli\ampere}$ to provide safey margin, across thirteen devices gives total consumption of $\SI{39}{\milli\ampere}$ 
-A $\SI{50}{\milli\ampere}$ voltage regliuator
-
-\subsection{Microprocessor Supply}
-Requirements
-Linear devie since ADC is it main function.
-3.3V output
->= 105 degrees
-6V input.
-RoHS compliantt
-SMD
-Minimum additional components
-Mising parameter: ouput current
-Output current calulations
-
-Assume at this stage the micro and 3V3 periphials will comsume 150mA in total (micro, LED x 2, possbible buss chips)
-
-Using the Digikey part sselector 
-RoHS datasheet, active part, 125 degrees, Vin max = 10V (allows overhead for 6V input) gives 
-
-Selected Digikey 296-11021-1-ND, TPS76333DBVR
-% http://www.ti.com/lit/ds/symlink/tps763.pdf?HQS=TI-null-null-digikeymode-df-pf-null-wwe&ts=1590036136348
-It is known that there are 6V versions and also 250mA versions whcih may have a similar form factor, so could be changed if higher Iout is required.
-
-Thermal consderations.
-PD worst case operating = (Vin - Vout) x Imax => (6.5-3.3)V * 150mA = 480mW
-PD max = (TJ - TA)/ thetaJA => (125-105) / 205.3 = 97.41 mW
-Thus PDMax < PD worst therfore device is not suitable.
-
-Checking several devices (TPS76633, TPD706-150 and others) analysis shows the Digikey 296-19675-1-ND, TPS71733DCKR is suitable.
-
-Tj = Tt + gamma?jt * PD max => 105 + 2.7*480mW = 106.296 less than Toperating max = 125 
-Tj = Tb + gamma?jb * PD max => 105 + 40.9* 480mW = 124.632 degress just less than Toperating max = 125 
-This is on the limit at 6.5V input 
-At 6.0 Vin Tj = 121 degrees - still less than Toperating max = 125 
-VDO = 300mV worst case.
-Price break for 100 uniots thus 100 x 1.00190 =  \$100.19 
+\subsection{Power modes}
+To meet the specification regarding control of ADC channels a 3 port hex inverter is used adding 50mA to the ADC section. If this level of ADC channel selection were not required this could be removed, realising a 50mA standby current saving. With the hex inverter included the following power modes are available:
+Mode							Active devices	 					Estimated current consumption.
+Sleep. (requires wake)				MCU sleep, CAN standby, ADC off 		<10 mA. 
+Low power. 						MCU active, CAN standby, ADC off		<30 mA
+Standby. (ready to sample)		MCU active, CAN active, ADC on		<98.5 - <148.5
+Sampling.						MCU active, CAN standby, ADC on		51.5 - 100.5 	
+Data transfer.					MCU active, CAN active, ADC off		<73
