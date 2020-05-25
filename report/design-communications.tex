@@ -42,6 +42,10 @@ Note that there are two CAN bus lines that are selectable via a solder jumper on
 	\label{fig:data_cable}
 \end{figure}
 
+30AWG nonilly nominally supports 270kHz for full skin depth.	Actual cable uses 7 strands of 38AWG (nominally 1750kHz for full skin depth).
+	Characteristic impeedance is 138 ohms balenced velocity factor of 74 with propagation of 4.53 nano seconds.
+	The chosen a cable has slightly higher impeedance to achieve higher velocity factor, knowing that the bus is near end and far end terminated to 120 ohms. This presents 130 ohms in parallel.)
+
 \subsubsection{Master to Data Logger}
 
 The master-board must also connect to a data logger via some means of electrically isolated connection.
