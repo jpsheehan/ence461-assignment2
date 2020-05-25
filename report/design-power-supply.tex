@@ -1,14 +1,22 @@
 \subsection{Power Supply}
-Current consumption analysis determined 40 - 90 mA and 70.5 - 110 mA (typical - maximum) are required for the ADC and digital sections respectively. (This rqange is depentant on whether indvidual control of ADC blocks is required, and maximum versues typical consumption values are used.) 
-The MIC5202-5.0YMM was selected to provide an independant 5V 100mA output, with disable function, to each section; thus providing the smallest physical footprint and zero ADC current consumption in low power mode. Furrthermore the MIC5202-5.0YMM meets the thermal requirement whereby it's junction temperature must not exceed the reliable operating maximium of 125 degrees when dissapating full current at 105 degres C ambient. Refer to APPENDIX for thermal calculations.
+Current consumption analysis determined $40 - \SI{90}{\milli\ampere}$ and $70.5 - \SI{110}{\milli\ampere}$ (typical - maximum) are required for the ADC and digital sections respectively
+(This range is dependant on whether individual control of the ADC blocks is required, and maximum consumption values are used).
+The MIC5202-5.0YMM was selected to provide an independent $\SI{5}{\volt} \SI{100}{\milli\ampere}$ output, with a disable function, to each section; thus providing the smallest physical footprint and zero ADC current consumption in low power mode.
+Furthermore, the MIC5202-5.0YMM meets the thermal requirements whereby its junction temperature must not exceed the reliable operating maximium of $\SI{125}{\degreeCelsius}$ when dissipating full current at $\SI{105}{\degreeCelsius}$.
+Refer to appendix \ref{ap:thermal} for thermal calculations.
  
-\subsection{OpAmp Supply}
-The LMV324AIPWR opamp uses 70uA quiescent current. Since the each op amp channel output connects via low pass filter to an MCU ADC input, there is minimal load, thus operating current is small. A conservative value of 2mA per ADC channel has been estimated.
-A voltage divider off the 5V ADC rail, with voltage follower op amp, provides the 2.5V half rail reference supply. Divider current is 0.5mA, designed to balence the conflicting requirements of low quiescient current with low value resistors to reduce thermal noise (associated with high ambient temperatures) in the ADC section.
-A 3 port hex inverter provides the ability to enable/disable ADC channels in blocks of four and consumes 50mA.
+\subsection{Op-Amp Supply}
+The LMV324AIPWR op-amp uses $\SI{70}{\micro\ampere}$ quiescent current.
+Since the each op-amp channel output connects via low pass filter to an MCU ADC input, there is minimal load, thus operating current is small.
+A conservative value of $\SI{2}{\milli\ampere}$ per ADC channel has been estimated.
+
+A voltage divider (off the $\SI{5}{\volt}$ DC rail), with voltage follower op-amp, provides the $\SI{2.5}{\volt}$ half rail reference supply.
+The divider current is $\SI{500}{\milli\ampere}$, designed to balance the conflicting requirements of low quiescient current with low value resistors to reduce thermal noise (associated with high ambient temperatures) in the ADC section.
+A three port CMOS inverter provides the ability to enable/disable ADC channels in blocks of four and consumes $\SI{50}{\milli\ampere}$.
 
 \subsection{MCU Supply}
-At 48MHz operation expected current consumption of the ATSAMC21N17A-ANTCT-ND is a conservative 20-30mA, and 25mA has been used foir calculations. The CAN bus transceiver consumes 47 mA typical, 70mA maxlmum.
+At $\SI{48}{\mega\hertz}$ operation, the expected current consumption of the MKE16Z32VLD4 is a conservative $20 - \SI{30}{\milli\ampere}$, and $\SI{25}{\milli\ampere}$ has been used for calculations.
+The CAN bus transceiver consumes $\SI{47}{\milli\ampere}$ typical, $\SI{70}{\milli\ampere}$ maxlmum.
 
 \subsection{Power modes}
 To meet the specification regarding control of ADC channels a 3 port hex inverter is used adding 50mA to the ADC section. If this level of ADC channel selection were not required this could be removed, realising a 50mA standby current saving. With the hex inverter included the following power modes are available:
