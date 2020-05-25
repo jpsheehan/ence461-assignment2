@@ -15,6 +15,7 @@ This is discussed in section \ref{sec:communications}.
 
 The MCU is programmed via a standard IDC connector ($\SI{1.27}{\milli\metre}$ pitch) via the SWD protocol.
 This is how the device will be initially programmed and debugged.
+When it is first programmed, a unique address will be stored in its memory. This is used for the CAN protocol.
 It is quite feasible to expect that the device will be able to be programmed via the CAN bus.
 This allows software updates to be uploaded to all slaves at the same time quickly.
 
