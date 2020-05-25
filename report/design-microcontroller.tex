@@ -13,4 +13,11 @@ It is also able to run in environments of up to $\SI{105}{\degreeCelsius}$ and h
 Its hardware CAN support also requires an external CAN receiver.
 This is discussed in section \ref{sec:communications}.
 
+The MCU is programmed via a standard IDC connector ($\SI{1.27}{\milli\metre}$ pitch) via the SWD protocol.
+This is how the device will be initially programmed and debugged.
+It is quite feasible to expect that the device will be able to be programmed via the CAN bus.
+This allows software updates to be uploaded to all slaves at the same time quickly.
+
+An LED is provided to give some visual feedback and it aid in debugging.
+It is driven by a P-MOSFET and is powered by the $\SI{6}{\volt}$ rail so it does not draw current from the local regulator.
 
