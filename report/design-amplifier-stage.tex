@@ -15,14 +15,10 @@ Finally, the sampling stage performs the analog to digital (ADC) conversion.
 
 The current transducers output a $\pm \SI{25}{\milli\volt}$ signal centered around $\SI{2.5}{\volt}$.
 This signal must be amplified to $\pm \SI{2.5}{\volt}$ using an operational amplifier with a gain of 100.
-However, the filtering stage attenuates the output voltage by a factor of $\sqrt{2}$.
-This mu
-Therefore, the gain of the amplifier stage must be 141 for the voltage at the ADC input to have a full $\SI{5}{\volt}$ range.
-
-To amplify the signal from the current transducer, a non-inverting op-amp circuit (figure \ref{fig:non-inverting-op-amp}) was used.
-12 of these non-inverting amplifier circuits are required for each daughterboard.
+To amplify the signal, a non-inverting op-amp circuit (figure \ref{fig:non-inverting-op-amp}) was used.
+12 of these circuits are required for each daughterboard.
 The LMV324 was selected as it has four op-amp circuits in one package.
-Resistor values of $R_1 = \SI{130}{\kilo\ohm}, R_2 = \SI{920}{\ohm}, R_3 = \SI{8.2}{\ohm}$ were chosen to give a gain of $141$ and an input impedance of $\SI{1}{\kilo\ohm}$ for each amplifier circuit.
+Resistor values of $R_1 = \SI{100}{\kilo\ohm}, R_2 = \SI{1}{\kilo\ohm}, R_3 = \SI{10}{\ohm}$ were chosen to give a gain of $100$ and an input impedance of $\SI{1}{\kilo\ohm}$ for each amplifier circuit.
 
 The half-rail voltage of $\SI{2.5}{\volt}$ is provided by a virtual ground op-amp circuit (figure \ref{fig:half-supply}).
 An LMV321 was used for this circuit.
@@ -61,15 +57,21 @@ The sum of the time taken to switch the op-amp back on is $\SI{50}{\micro\second
 
 \subsubsection{Filtering Stage}
 
-A low-pass filter circuit was designed to attenuate frequencies above the expected $\SI{400}{\hertz}$.
-This was done with a simple RC filter (figure \ref{fig:filter}) as the cut-off frequency is less than $\SI{100}{\kilo\hertz}$.
+A low-pass filter circuit was designed to attenuate frequencies above $\SI{400}{\hertz}$.
+This was done with a simple RC filter circuit (figure \ref{fig:filter}) because the cut-off frequency is less than $\SI{100}{\kilo\hertz}$.
 The filter was designed to have a cut-off frequency of $\SI{600}{\hertz}$ so that frequencies above $\SI{400}{\hertz}$ would be attenuated.
 The component values were $C = \SI{0.47}{\micro\farad}, R = \SI{560}{\ohm}$.
 
-A drawback of this filter is that the output voltage is $V_{in} \sqrt{2}$.
+A drawback of this filter is that the output voltage is $V_{in} \sqrt{2}$, however it is required due to the type of ADC.
 In this case, the maximum voltage the filter can output is $\SI{3.54}{\volt}$.
 To acheive maximum output of $\SI{5}{\volt}$, the gain of the amplifier stage would need to be $141$ and the voltage would need to have a $\pm\SI{3.54}{\volt}$ range, centered around $\SI{2.5}{\volt}$.
 Due to the requirements, this is not possible as the output voltage of the amplifier saturates at the supply rail voltage.
 
 \subsubsection{Sampling Stage}
+
+The sampling is done using a 12-bit successive approximation (SAR) ADC on the microcontroller.
+The SAR hardware is accurate up to high resolutions but requires a stable input, hence the need for an RC filter.
+All 12 ADCs exist as different channels on the same ADC peripheral and direct memory acccess (DMA) can be used to move the data to memory.
+The ADC peripheral features a hardware averaging circuit which can be leveraged to reduce the load on the microcontroller core.
+
 
