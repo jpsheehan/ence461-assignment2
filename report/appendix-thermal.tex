@@ -5,19 +5,34 @@ Several components have been selected for 125 degree C or above operation to rel
 
 \subsection{Regulator Thermal Calculations}
 \label{ap:regulator}
-For reliable operation the regulator junction temperature must not exceed 125 degrees. Junction temperature is a function of ambient temperature and power dissipated, due to load current and voltage differential between supply and output. $\theta$J_A define the devices ability dissipate heat.
-Using a SOIC 8-Ld device $\theta$J_A is 65 degrees. PD_max = (T_max - T_ambient)\divide$\theta$J_A 
-Thus PD^max = (125-105)\divide65 = 317.46mW
-PD_operating = (V_IN - V_OUT)\timesV_OUT 
-Thus PD_worst case = 6-5)*200mW = 200mW
-Hence PD_worst case < PDmax :. device is suitable.
-Substituting in PD_MAX and rearranging shows the maximum continuous supply rail voltage is 6.585V giving a limited safety margin.
-IF worst case operating current is used the supply rail could go slightly higher.
-Note that V_in max is 26V.
+For reliable operation the regulator junction temperature must not exceed $\SI{125}{\degreeCelsius}$. 
+The junction temperature is a function of ambient temperature and power dissipated, due to load current and voltage differential between supply and output.
+$\theta J_A$ defines the device's ability dissipate heat.
+Using a SOIC 8-Ld device, $\theta J_A = \SI{65}{\degreeCelsius}$.
+\begin{align}
+	PD_{max} &= \frac{T_{max} - T_{ambient}}{\theta J_A} \\ 
+	\therefore PD_{max} &= \frac{125-105}{ 65} \nonumber \\
+		&= \SI{317.46}{\milli\watt} \nonumber
+\end{align}
 
-\subsection{Opamp Thermal Calculations}
+\begin{align}
+	PD_{operating} &= (V_{in} - V_{out})\times V_{out} \\
+	\therefore PD_{worst case} &= (6-5)\times 200 \nonumber \\
+		&= \SI{200}{\milli\watt} \nonumber
+\end{align}
+
+Hence $PD_{worst case} < PD_{max} \therefore$ device is suitable.
+Substituting in $PD_{max}$ and rearranging shows the maximum continuous supply rail voltage is $\SI{6.585}{\volt}$ giving a limited safety margin.
+If the worst case operating current is used, the supply rail voltage could go slightly higher.
+Note that $V_{in}$ max is $\SI{26}{\volt}$.
+
+\subsection{Op-Amp Thermal Calculations}
 \label{ap:amplifier}
-Power dissipation is a function of the difference between supply voltage to output voltage, output voltage difference to ground (for single supply devices) and the output current. At low frequencies the RC filter presents the high input impedance MCU ADC input to the opamp output. Thus, the load is high impedance and little current is consumed. At high frequencies the opamp output is 560 ohms and current is increased. However, noise signals are expected to be lower in amplitude than signal thus overall current consumption will be within an estimated 2mA
+Power dissipation is a function of the difference between supply voltage to output voltage, output voltage difference to ground (for single supply devices) and the output current.
+At low frequencies the RC filter presents the high input impedance MCU ADC input to the op-amp output.
+Thus, the load is high impedance and little current is consumed.
+At high frequencies, the op-amp output is $\SI{560}{\ohm}$ and current is increased.
+However, noise signals are expected to be lower in amplitude than the signal, and thus the overall current consumption will be within an estimated $\pm \SI{2}{\milli\ampere}$.
 Additionally the worst case quiescent current is $\SI{70}{\micro\ampere}$.
 With a 5V supply and low current power dissipation is minimal, there is a comfortable margin between the ambient temperature of $\SI{105}{\degreeCelsius}$, the junction operating temperature of $\SI{125}{\degreeCelsius}$, and the device absolute maximum of $\SI{150}{\degreeCelsius}$.
 

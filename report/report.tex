@@ -59,7 +59,11 @@
 
 %%% Title Stuff
 \title{ENCE461 Assignment 2}
-\author{Put names here...}
+\author{
+	J.P. Sheehan \\
+	M.F. Hamblyn \\
+	\small{Group 36}
+}
 \date{\today}
 
 
@@ -70,17 +74,29 @@
 
 \begin{document}
 \maketitle
+\thispagestyle{empty}
+
+\vfill
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{render}
+	\label{fig:render}
+\end{figure}
+\vfill
+
+\newpage
 
 \input{introduction}
 
 \input{design}
-
-\input{appendix}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%                           BIBLIOGRAPHY                         %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \printbibliography
+
+% appendix
+\input{appendix}
 
 \end{document}
