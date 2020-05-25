@@ -1,11 +1,11 @@
 \subsection{Communications}
-This section describes the top-level design. Key details can be found in the APPENDIX.
+This section describes the top-level design. Key details can be found in appendix \ref{ap:communications}.
 
-\subsubsection{Master to daughterboards} 
+\subsubsection{Master to Daughterboards} 
 Given the timing constraints, number of devices and environmental conditions, the evaluation process identified CAN bus and I2C as suitable communications systems.
 CAN was chosen primarily due to its differential signalling mechanisms providing inbuilt noise immunity and upper protocol support. 
 
-\subsubsubsection{Selection process}
+\subsubsection{Selection process}
 Selection criteria were 1. number of devices supported, 2. raw data rate, 3 physical implementation, .1 connector requirements, .2 noise immunity, .3 ease of cabling installation and maintenance .4 supported topology. 
 1. Systems supporting less than 127 devices were excluded.
 
@@ -22,10 +22,10 @@ Multidrop systems were favoured.
 .4 Topology 
 Systems that support multiple topologies were preferred.
 
-\subsubsubsection{CAN transceiver selection}
+\subsubsection{CAN transceiver selection}
 
 
-\subsubsubsection{CAN bus physical implementation }
+\subsubsection{CAN bus physical implementation }
 Separate cabling is used for data communications to meet the timing and signalling requirements of 1uSec and 100 mSec.
 
 30AWG ribbon cable is used for reliability and ease of installation and maintenance since the bus is not broken per daughterboard, whilst meeting the timing requirements. Additionally, there is a greater range of 10 conductor options (compared to 8, 6 or 4 way) which also provides for dual bus expansion options. Strain relief is also provided with the chosen connector system. To provide maximum noise immunity and cable reversal protection the 10 conductors are arranged 00 AA 00 BB 00 where 0 represents signal ground, AA and BB are the two independent CAN signals. 
