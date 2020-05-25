@@ -1,6 +1,9 @@
 \section{Conditioning}
 \label{ap:conditioning}
 
+\subsection{Non-Inverting Amplifier Calculations}
+\label{ap:amplifier}
+
 The input impedance and gain for the non-inverting amplifier circuit are given by equations \ref{eq:zi} and \ref{eq:gain} respectively.
 \begin{align}
 	Z_i &= \frac{R_1 (R_2 + R_3)}{R_1 + R_2 + R_3} \label{eq:zi} \\
@@ -22,3 +25,16 @@ Equations \ref{eq:r1} and \ref{eq:r2} show the derived formulae for the resistor
 % The power dissapation is a function of the difference between supply voltage to output voltage, output voltage difference to ground (for single supply devices) and the output current.
 % With low power dissapation, there is a comfortable margin between the ambient temperature of $\SI{105}{\degreeCelsius}$, the junction operating temperature of $\SI{125}{\degreeCelsius}$, and the device absolute maximum of $\SI{150}{\degreeCelsius}$.
 % Additionally the worst case quiescent current is $\SI{150}{\micro\ampere}$.
+
+\subsection{Low-Pass Filter Calculations}
+\label{ap:filter}
+
+The cut-off frequency of an RC filter is the frequency at which the signal is attenuated by $\SI{3}{\decibel}$.
+The formula for the cut-off frequency is given by equation \ref{eq:rcfilter}.
+A cut-off frequency was chosen to be $\SI{600}{\hertz}$ as the signals at $\SI{400}{\hertz}$ are not attenuated.
+A capacitor value of $\SI{0.47}{\micro\farad}$ was chosen and the resistor value was calculated as $\SI{560}{\ohm}$.
+\begin{align}
+	f_c &= \frac{1}{2 \pi R C} \label{eq:rcfilter}
+\end{align}
+
+

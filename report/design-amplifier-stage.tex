@@ -18,7 +18,7 @@ This signal must be amplified to $\pm \SI{2.5}{\volt}$ using an operational ampl
 To amplify the signal, a non-inverting op-amp circuit (figure \ref{fig:non-inverting-op-amp}) was used.
 12 of these circuits are required for each daughterboard.
 The LMV324 was selected as it has four op-amp circuits in one package.
-Resistor values of $R_1 = \SI{100}{\kilo\ohm}, R_2 = \SI{1}{\kilo\ohm}, R_3 = \SI{10}{\ohm}$ (appendix \ref{ap:conditioning}) were chosen to give a gain of $100$ and an input impedance of $\SI{1}{\kilo\ohm}$ for each amplifier circuit.
+Resistor values of $R_1 = \SI{100}{\kilo\ohm}, R_2 = \SI{1}{\kilo\ohm}, R_3 = \SI{10}{\ohm}$ (appendix \ref{ap:amplifier}) were chosen to give a gain of $100$ and an input impedance of $\SI{1}{\kilo\ohm}$ for each amplifier circuit.
 
 The half-rail voltage of $\SI{2.5}{\volt}$ is provided by a virtual ground op-amp circuit (figure \ref{fig:half-supply}).
 An LMV321 was used for this circuit.
@@ -60,7 +60,7 @@ The sum of the time taken to switch the op-amp back on is $\SI{50}{\micro\second
 A low-pass filter circuit was needed due to the electrically noisy environment from within the devices are required to operate.
 This was done with a simple RC filter circuit (figure \ref{fig:filter}) because the cut-off frequency is less than $\SI{100}{\kilo\hertz}$.
 The filter was designed to have a cut-off frequency of $\SI{600}{\hertz}$ so that frequencies above $\SI{400}{\hertz}$ would be attenuated.
-The component values were $C = \SI{0.47}{\micro\farad}, R = \SI{560}{\ohm}$.
+The component values were $C = \SI{0.47}{\micro\farad}, R = \SI{560}{\ohm}$ (appendix \ref{ap:filter}).
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.2\textwidth]{rc_filter_circuit}
