@@ -1,7 +1,7 @@
 \subsection{Power Supply}
 Current consumption analysis determined $40 - \SI{90}{\milli\ampere}$ and $70.5 - \SI{110}{\milli\ampere}$ (typical - maximum) are required for the ADC and digital sections respectively
 (This range is dependant on whether individual control of the ADC blocks is required, and maximum consumption values are used).
-The MIC5202-5.0YMM was selected to provide an independent $\SI{5}{\volt} \SI{100}{\milli\ampere}$ output, with a disable function, to each section; thus providing the smallest physical footprint and zero ADC current consumption in low power mode.
+The MIC5202-5.0YMM was selected to provide an independent $\SI{5}{\volt}\ \SI{100}{\milli\ampere}$ output, with a disable function, to each section; thus providing the smallest physical footprint and zero ADC current consumption in low power mode.
 Furthermore, the MIC5202-5.0YMM meets the thermal requirements whereby its junction temperature must not exceed the reliable operating maximium of $\SI{125}{\degreeCelsius}$ when dissipating full current at $\SI{105}{\degreeCelsius}$.
 Refer to appendix \ref{ap:thermal} for thermal calculations.
  
@@ -11,14 +11,14 @@ Since the each op-amp channel output connects via low pass filter to an MCU ADC 
 A conservative value of $\SI{2}{\milli\ampere}$ per ADC channel has been estimated.
 
 A voltage divider (off the $\SI{5}{\volt}$ DC rail), with voltage follower op-amp, provides the $\SI{2.5}{\volt}$ half rail reference supply.
-The divider current is $\SI{500}{\milli\ampere}$, designed to balance the conflicting requirements of low quiescient current with low value resistors to reduce thermal noise (associated with high ambient temperatures) in the ADC section.
+The divider current is $\SI{500}{\milli\ampere}$ is designed to balance the conflicting requirements of low quiescient current with low value resistors to reduce thermal noise (associated with high ambient temperatures) in the ADC section.
 A three port CMOS inverter provides the ability to enable/disable ADC channels in blocks of four and consumes $\SI{50}{\milli\ampere}$.
 
 \subsection{MCU Supply}
 At $\SI{48}{\mega\hertz}$ operation, the expected current consumption of the MKE16Z32VLD4 is a conservative $20 - \SI{30}{\milli\ampere}$, and $\SI{25}{\milli\ampere}$ has been used for calculations.
-The CAN bus transceiver consumes $\SI{47}{\milli\ampere}$ typical, $\SI{70}{\milli\ampere}$ maxlmum.
+The CAN bus transceiver consumes $\SI{47}{\milli\ampere}$ typical, $\SI{70}{\milli\ampere}$ maximum.
 
 \subsection{Power modes}
 To meet the specification regarding control of ADC channels a 3 port hex inverter is used adding 50mA to the ADC section. If this level of ADC channel selection were not required this could be removed, realising a 50mA standby current saving. With the hex inverter included five power modes are available: Sleep, (requires wake on CAN); Low power; Standby (ready to sample); Sampling; Data transfer.
 Device status is: MCU sleep, CAN standby, ADC of; MCU active, CAN standby, ADC off; MCU active, CAN active, ADC on; MCU active, CAN standby, ADC on; MCU active, CAN active, ADC off.
-Power cosumption per mode is: <10; <30; <98.5 - <148.5; 51.5 - 110.5; <73  $\SI{\milli\ampere}$ respectively.
+Power cosumption per mode is: $<10; <30; <98.5 - <148.5; 51.5 - 110.5; <73$ mA  respectively.
