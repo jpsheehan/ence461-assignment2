@@ -19,10 +19,6 @@ At $\SI{48}{\mega\hertz}$ operation, the expected current consumption of the MKE
 The CAN bus transceiver consumes $\SI{47}{\milli\ampere}$ typical, $\SI{70}{\milli\ampere}$ maxlmum.
 
 \subsection{Power modes}
-To meet the specification regarding control of ADC channels a 3 port hex inverter is used adding 50mA to the ADC section. If this level of ADC channel selection were not required this could be removed, realising a 50mA standby current saving. With the hex inverter included the following power modes are available:
-Mode							Active devices	 					Estimated current consumption.
-Sleep. (requires wake)				MCU sleep, CAN standby, ADC off 		<10 mA. 
-Low power. 						MCU active, CAN standby, ADC off		<30 mA
-Standby. (ready to sample)		MCU active, CAN active, ADC on		<98.5 - <148.5
-Sampling.						MCU active, CAN standby, ADC on		51.5 - 100.5 	
-Data transfer.					MCU active, CAN active, ADC off		<73
+To meet the specification regarding control of ADC channels a 3 port hex inverter is used adding 50mA to the ADC section. If this level of ADC channel selection were not required this could be removed, realising a 50mA standby current saving. With the hex inverter included five power modes are available: Sleep, (requires wake on CAN); Low power; Standby (ready to sample); Sampling; Data transfer.
+Device status is: MCU sleep, CAN standby, ADC of; MCU active, CAN standby, ADC off; MCU active, CAN active, ADC on; MCU active, CAN standby, ADC on; MCU active, CAN active, ADC off.
+Power cosumption per mode is: <10; <30; <98.5 - <148.5; 51.5 - 110.5; <73  $\SI{\milli\ampere}$ respectively.
