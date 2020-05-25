@@ -1,6 +1,6 @@
 \subsection{Power Supply}
 Current consumption analysis determined 40 - 90 mA and 70.5 - 110 mA (typical - maximum) are required for the ADC and digital sections respectively. (This rqange is depentant on whether indvidual control of ADC blocks is required, and maximum versues typical consumption values are used.) 
-The MIC5202-5.0YMM was selected to provide an independant 5V 100mA output, with disable function, to each section; thus providing the smallest physical footprint and zero ADC current consumption in low power mode.
+The MIC5202-5.0YMM was selected to provide an independant 5V 100mA output, with disable function, to each section; thus providing the smallest physical footprint and zero ADC current consumption in low power mode. Furrthermore the MIC5202-5.0YMM meets the thermal requirement whereby it's junction temperature must not exceed the reliable operating maximium of 125 degrees when dissapating full current at 105 degres C ambient. Refer to APPENDIX for thermal calculations.
  
 \subsection{OpAmp Supply}
 The LMV324AIPWR opamp uses 70uA quiescent current. Since the each op amp channel output connects via low pass filter to an MCU ADC input, there is minimal load, thus operating current is small. A conservative value of 2mA per ADC channel has been estimated.
