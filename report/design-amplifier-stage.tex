@@ -4,7 +4,7 @@ The process of converting the voltage seen at the current transducer to a digita
 The gain stage amplifies the voltage of the signal up to a reasonable level.
 The filtering stage removes any high frequency noise.
 Finally, the sampling stage performs the analog to digital (ADC) conversion.
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{conditioning}
 	\caption{The signal conditioning process.}
@@ -28,23 +28,21 @@ Therefore, two $\SI{2.5}{\kilo\ohm}$ resistors balance the noise and have a stat
 
 \begin{figure}[hb!]
 \centering
-
+\hfill
 \begin{subfigure}[c]{0.45\textwidth}
 	\centering
-	\includegraphics[width=\textwidth]{gain_circuit}
+	\includegraphics[width=0.8\textwidth]{gain_circuit}
 	\caption{The non-inverting amplifier circuit.}
 	\label{fig:non-inverting-op-amp}
 \end{subfigure}
 \hfill
 \begin{subfigure}[c]{0.45\textwidth}
 	\centering
-	\vfill
-	\includegraphics[width=\textwidth]{virtual_ground_circuit}
-	\vfill
+	\includegraphics[width=0.8\textwidth]{virtual_ground_circuit}
 	\caption{The virtual ground circuit.}
 	\label{fig:half-supply}
 \end{subfigure}
-
+\hfill
 \caption{The operational amplifer circuits used.}
 \end{figure}
 

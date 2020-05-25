@@ -43,4 +43,9 @@ Note that there are two CAN bus lines that are selectable via a solder jumper on
 \end{figure}
 
 \subsubsection{Master to Data Logger}
-\textcolor{red}{TODO: Need to do this!!!! Wifi????}
+
+The master-board must also connect to a data logger via some means of electrically isolated connection.
+After some consideration surrounding the cost of fiber-optic links and there suitability to the thermal environment, an RF solution was chosen.
+The 802.11 protocol was chosen for its ubiquity and suitability for purpose.
+The 113990816\footnote{\url{https://www.digikey.co.nz/product-detail/en/seeed-technology-co-ltd/113990816/1597-113990816CT-ND/6194658}} from Seeed Technology Co., Ltd is a surface mount component that supports 802.11b/g/n and temperatures of up to $\SI{125}{\degreeCelsius}$.
+The only consideration would be the electrical noise produced by the apparatus but this could be reduced by physically locating the master-board away from the high voltage components.
