@@ -1,31 +1,23 @@
-\section{Conditioning}
-\label{ap:conditioning}
+\section{Thermal}
+The system require is for reliable operating at an ambient temperature of 105 degrees C.
+Therefore, all sourced parts have a minimum operating temperature of 105 degrees.
+Several components have been selected for 125 degree C or above operation to reliability, these are listed in following sections.
 
-\subsection{Non-Inverting Amplifier Calculations}
+\subsection{Regulator Thermal Calculations}
+\label{ap:regulator}
+For reliable operation the regulator junction temperature must not exceed 125 degrees. Junction temperature is a function of ambient temperature and power dissipated, due to load current and voltage differential between supply and output. $\theta$J_A define the devices ability dissipate heat.
+Using a SOIC 8-Ld device $\theta$J_A is 65 degrees. PD_max = (T_max - T_ambient)\divide$\theta$J_A 
+Thus PD^max = (125-105)\divide65 = 317.46mW
+PD_operating = (V_IN - V_OUT)\timesV_OUT 
+Thus PD_worst case = 6-5)*200mW = 200mW
+Hence PD_worst case < PDmax :. device is suitable.
+Substituting in PD_MAX and rearranging shows the maximum continuous supply rail voltage is 6.585V giving a limited safety margin.
+IF worst case operating current is used the supply rail could go slightly higher.
+Note that V_in max is 26V.
+
+\subsection{Opamp Thermal Calculations}
 \label{ap:amplifier}
-
-The input impedance and gain for the non-inverting amplifier circuit are given by equations \ref{eq:zi} and \ref{eq:gain} respectively.
-\begin{align}
-	Z_i &= \frac{R_1 (R_2 + R_3)}{R_1 + R_2 + R_3} \label{eq:zi} \\
-	A_v &= 1 + \frac{R_1}{R_2 + R_3}\label{eq:gain}
-\end{align}
-
-The source impedance is specified as being less than $\SI{100}{\ohm}$.
-A input impedance that is at least an order of magnitude higher than the source impedance is required for maximum voltage transfer and minimum current drain.
-$Z_i = \SI{1}{\kilo\ohm}$ was decided upon, because it is 10 times higher than the worst-case source impedance.
-Equations \ref{eq:r1} and \ref{eq:r2} show the derived formulae for the resistors based upon the given $Z_i$ and $A$ values.
-\begin{align}
-	R_1 &= Z_i A \label{eq:r1} \\
-	R_2 + R_3 &= \frac{Z_i A}{A - 1} \label{eq:r2} \\[1em]
-	\therefore R_1 = \SI{100}{\kilo\ohm}, R_2 &= \SI{1}{\kilo\ohm}, R_3 = \SI{10}{\ohm} \nonumber
-\end{align}
-
-% Thermal calculations (\textcolor{red}{add reference to appendix}) show that the op-amps will supply minimal current into the microprocessor's ADC inputs.
-% Thus their power dissapation is relatively low.
-% The power dissapation is a function of the difference between supply voltage to output voltage, output voltage difference to ground (for single supply devices) and the output current.
-% With low power dissapation, there is a comfortable margin between the ambient temperature of $\SI{105}{\degreeCelsius}$, the junction operating temperature of $\SI{125}{\degreeCelsius}$, and the device absolute maximum of $\SI{150}{\degreeCelsius}$.
-% Additionally the worst case quiescent current is $\SI{150}{\micro\ampere}$.
-
-
-
+Power dissipation is a function of the difference between supply voltage to output voltage, output voltage difference to ground (for single supply devices) and the output current. At low frequencies the RC filter presents the high input impedance MCU ADC input to the opamp output. Thus, the load is high impedance and little current is consumed. At high frequencies the opamp output is 560 ohms and current is increased. However, noise signals are expected to be lower in amplitude than signal thus overall current consumption will be within an estimated 2mA
+Additionally the worst case quiescent current is $\SI{70}{\micro\ampere}$.
+With a 5V supply and low current power dissipation is minimal, there is a comfortable margin between the ambient temperature of $\SI{105}{\degreeCelsius}$, the junction operating temperature of $\SI{125}{\degreeCelsius}$, and the device absolute maximum of $\SI{150}{\degreeCelsius}$.
 
