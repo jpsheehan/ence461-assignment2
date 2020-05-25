@@ -1,1 +1,16 @@
 \subsection{Microcontroller}
+\label{sec:microcontroller}
+
+A 32-bit microcontroller (MCU) with at least 12 12-bit ADCs was required to communicate the current readings to the masterboard.
+This MCU must communicate with masterboard to send readings every $\SI{100}{\milli\second}$.
+Each slave must be time-synced with all other slaves with a deviation of no more than $\SI{1}{\micro\second}$.
+The MCU must also be able to withstand temperatures of up to $\SI{105}{\degreeCelsius}$ and have support for the CAN protocol.
+
+To meet these requirements the MKE16Z32VLD4 was chosen.
+It has an ARM Cortex-M0+ core, a $\SI{48}{\mega\hertz}$ internal clock, $\SI{32}{\kilo\byte}$ of FLASH memory, and 12 SAR ADCs.
+It is also able to run in environments of up to $\SI{105}{\degreeCelsius}$ and has a small 44-pin LQFP footprint.
+
+Its hardware CAN support also requires an external CAN receiver.
+This is discussed in section \ref{sec:communications}.
+
+
